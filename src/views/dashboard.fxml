@@ -4,24 +4,45 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BaseController">
    <children>
-      <VBox fx:id="menuVbox" layoutY="-1.0" prefHeight="550.0" prefWidth="133.0">
+      <VBox fx:id="menuVbox" layoutY="-1.0" prefHeight="560.0" prefWidth="133.0">
          <children>
             <Pane prefHeight="127.0" prefWidth="133.0" />
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="133.0" text="Home" textFill="#f6f6f6" />
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="133.0" text="Plan A Travel" />
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="133.0" text="Check Weather" />
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="133.0" text="Emergency SOS" />
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="133.0" text="Convert Currency" />
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="133.0" text="Travel With Us" />
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToHomePage" prefHeight="35.0" prefWidth="133.0" text="Home" textFill="#f6f6f6" />
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToPlanATourPage" prefHeight="35.0" prefWidth="133.0" text="Plan A Travel" />
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToCheckWeatherPage" prefHeight="35.0" prefWidth="133.0" text="Check Weather" />
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToCovertCurrencyPage" prefHeight="35.0" prefWidth="133.0" text="Convert Currency" />
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToEmergencySOSPage" prefHeight="35.0" prefWidth="133.0" text="Emergency SOS" />
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToTravelWithTravsyPage" prefHeight="35.0" prefWidth="133.0" text="Travel With Us" />
+            <Pane prefHeight="200.0" prefWidth="133.0">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="156.0" mnemonicParsing="false" onAction="#goToSettingPage" prefHeight="44.0" prefWidth="89.0" text="Setting" textFill="#ebe1e1" />
+               </children>
+            </Pane>
          </children>
       </VBox>
       <Pane layoutX="1.0" layoutY="-2.0" prefHeight="67.0" prefWidth="850.0">
          <children>
-            <Button id="loginBtnStyle" layoutX="648.0" layoutY="24.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Login" />
-            <Button id="loginBtnStyle" layoutX="745.0" layoutY="24.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Sign Up" />
+            <Button id="loginBtnStyle" layoutX="648.0" layoutY="24.0" mnemonicParsing="false" onAction="#goToLoginPage" prefHeight="30.0" prefWidth="89.0" text="Login" />
+            <Button id="loginBtnStyle" layoutX="748.0" layoutY="24.0" mnemonicParsing="false" onAction="#goToRegisterPage" prefHeight="30.0" prefWidth="89.0" text="Sign Up" />
+         </children>
+      </Pane>
+      <Pane layoutX="223.0" layoutY="90.0" prefHeight="413.0" prefWidth="523.0" style="-fx-background-color: #1B2537;">
+         <children>
+            <Text fill="#e9e4e4" layoutX="72.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A Image Slider Will Be Added here. Different kinds of promo will display here" textAlignment="CENTER" wrappingWidth="379.9511413574219">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Circle fill="DODGERBLUE" layoutX="252.0" layoutY="388.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#c0cdd9" layoutX="236.0" layoutY="388.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#c0cdd9" layoutX="282.0" layoutY="388.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#c0cdd9" layoutX="266.0" layoutY="388.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
    </children>

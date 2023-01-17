@@ -46,14 +46,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 
 
-
-
-
-
+/*Tab Pane Style*/
 #tabPane {
-    -fx-tab-min-height: 0.5em;
+    -fx-tab-min-height: 5em;
     /* 24 */
-    -fx-tab-max-height: 0.5em;
+    -fx-tab-max-height: 5em;
     /* 24 */
 
     -fx-tab-min-width: 0.5em;
@@ -69,19 +66,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .tab{
 
-    -fx-background-color: transparent;
+    -fx-background-color: #FFFFFF;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
-    -fx-padding: 10 15 10 15;
+    -fx-padding: 0 30 0 30;
 }
 
 .tab:selected
 {
-    -fx-background-color:transparent;
+    -fx-background-color: #FAFCFB;
     -fx-background-radius: 0;
     -fx-background-insets: 0;
     -fx-border-width: 5 0 0 0;
-    -fx-border-color:transparent;
+    -fx-border-color: #3FE387;
+
+
+
 }
 
 .tab:focused
@@ -110,10 +110,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-border-color: transparent;
 }
 
-#AnchorPane{
-    -fx-background-color:aqua;
-}
-#Pane{
-    -fx-background-color:aquamarine;
-}
+
+
+
 

@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1">
-    
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BaseController">
+   <children>
+      <Pane layoutX="1.0" layoutY="-2.0" prefHeight="67.0" prefWidth="850.0" />
+      <Pane layoutX="236.0" layoutY="52.0" prefHeight="434.0" prefWidth="373.0" style="-fx-background-color: #1B2537;">
+         <children>
+            <PasswordField layoutX="159.0" layoutY="213.0" prefHeight="30.0" prefWidth="168.0" promptText="Enter Your Password" />
+            <TextField layoutX="159.0" layoutY="170.0" prefHeight="30.0" prefWidth="168.0" promptText="Enter Your User Name" />
+            <Label layoutX="78.0" layoutY="174.0" text="User Name" textFill="#f4f2f2">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="79.0" layoutY="217.0" text="Password" textFill="#f4f2f2">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button id="loginBtnStyle" layoutX="70.0" layoutY="271.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Login" />
+            <Label layoutX="162.0" layoutY="99.0" text="Log In" textFill="#f2efef">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Hyperlink layoutX="162.0" layoutY="274.0" onAction="#goToRegisterPage" text="Don't  have a account? signup" />
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>
