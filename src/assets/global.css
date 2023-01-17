@@ -1,0 +1,119 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jan 12, 2023, 3:43:51 PM
+    Author     : Habib
+*/
+
+.root{
+    
+/*    -fx-background-image:url("../assets/bg.jpg");*/
+    -fx-background-color:#10141F;
+}
+#menuVbox
+{
+    /*-fx-background-color:linear-gradient(#1cb5e0,#000046);*/
+    -fx-background-color:#1B2537;
+    
+}
+.button{
+    -fx-background-color:#1B2537;
+    -fx-padding: 10 20 10 20;
+    -fx-text-fill: #FFFFFF;
+}
+.button:hover{
+    -fx-background-color:#5357A8;
+}
+.button:pressed{
+    -fx-background-color:#5357A8;
+}
+.button:active{
+    -fx-background-color:#5357A8;
+}
+#loginBtnStyle{
+    -fx-background-color:#1B2537;
+    -fx-padding: 5 5 5 5;
+    -fx-text-fill: #FFFFFF;
+}
+#loginBtnStyle:hover{
+    -fx-background-color:#5357A8;
+}
+#loginBtnStyle:pressed{
+    -fx-background-color:#5357A8;
+}
+
+
+
+
+
+
+
+#tabPane {
+    -fx-tab-min-height: 0.5em;
+    /* 24 */
+    -fx-tab-max-height: 0.5em;
+    /* 24 */
+
+    -fx-tab-min-width: 0.5em;
+    -fx-tab-max-width: 0.5em;
+    -fx-padding: 0 -1 -1 0
+}
+.tab .tab-label {
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER;
+    -fx-text-fill: #EBEAF0;
+
+}
+
+.tab{
+
+    -fx-background-color: transparent;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+    -fx-padding: 10 15 10 15;
+}
+
+.tab:selected
+{
+    -fx-background-color:transparent;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-width: 5 0 0 0;
+    -fx-border-color:transparent;
+}
+
+.tab:focused
+{
+  -fx-focus-color: transparent;
+
+
+}
+
+.tab-pane *.tab-header-background
+{
+    -fx-background-color: transparent;
+}
+
+.tab-pane:left *.tab-header-area
+{
+    -fx-background-insets: 0, 0 0 10;
+    -fx-padding: 0.0em 0.0em 0.0em 0.0em;
+
+
+}
+
+.tab:selected .focus-indicator
+{
+    -fx-focus-color: transparent;
+    -fx-border-color: transparent;
+}
+
+#AnchorPane{
+    -fx-background-color:aqua;
+}
+#Pane{
+    -fx-background-color:aquamarine;
+}
+
