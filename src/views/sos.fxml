@@ -2,6 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -31,13 +34,22 @@
             <Button id="loginBtnStyle" layoutX="748.0" layoutY="24.0" mnemonicParsing="false" onAction="#goToRegisterPage" prefHeight="30.0" prefWidth="89.0" text="Sign Up" />
          </children>
       </Pane>
-      <Pane layoutX="246.0" layoutY="62.0" prefHeight="434.0" prefWidth="373.0" style="-fx-background-color: #1B2537;">
+      <Pane layoutX="252.0" layoutY="67.0" prefHeight="434.0" prefWidth="373.0" style="-fx-background-color: #1B2537;">
          <children>
-            <Label layoutX="126.0" layoutY="30.0" text="Emergrncy SOS" textFill="#f2efef">
+            <Label layoutX="126.0" layoutY="30.0" text="Emergency SOS" textFill="#f2efef">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
+            <TextField layoutX="71.0" layoutY="93.0" prefHeight="25.0" prefWidth="166.0" promptText="Search Emergency Contact Area Wise" />
+            <Button id="invisbleBtnStyle" layoutX="249.0" layoutY="90.0" mnemonicParsing="false" text="Search" />
+            <TableView layoutX="26.0" layoutY="131.0" prefHeight="200.0" prefWidth="324.0">
+              <columns>
+                <TableColumn prefWidth="107.99993896484375" text="Service provider" />
+                <TableColumn prefWidth="122.0" text="Contact Number" />
+                  <TableColumn prefWidth="93.99996948242188" text="Details" />
+              </columns>
+            </TableView>
          </children>
       </Pane>
    </children>

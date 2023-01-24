@@ -10,21 +10,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .root{
     
 /*    -fx-background-image:url("../assets/bg.jpg");*/
-    -fx-background-color:#10141F;
+    -fx-background-color:#E7E8E6;
 }
 #menuVbox
 {
-    /*-fx-background-color:linear-gradient(#1cb5e0,#000046);*/
-    -fx-background-color:#1B2537;
+    -fx-background-color:linear-gradient(#537895,#09203F);
+    /*-fx-background-color:#1B2537;*/
     
 }
 .button{
-    -fx-background-color:#1B2537;
-    -fx-padding: 10 20 10 20;
+    -fx-background-color:transparent;
+/*    -fx-background-color:;*/
+    -fx-padding: 5 5 5 5;
     -fx-text-fill: #FFFFFF;
+   -fx-font-weight:bold;
+   -fx-font-size:15px;
 }
 .button:hover{
-    -fx-background-color:#5357A8;
+/*      -fx-border-color:#C4E2D5;
+      -fx-border-width:0px 0px 0px 4px;*/
 }
 .button:pressed{
     -fx-background-color:#5357A8;
@@ -32,17 +36,39 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .button:active{
     -fx-background-color:#5357A8;
 }
+/*//SideBar Transparent button*/
+.sideBtn{
+    
+}
+.sideBtn:hover{
+    -fx-border-color:#C4E2D5;
+    -fx-border-width:0px 0px 0px 4px;
+}
+
+
+
+
+
 #loginBtnStyle{
-    -fx-background-color:#1B2537;
+    -fx-background-color:#C4E2D5;
     -fx-padding: 5 5 5 5;
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #132B48;
+    -fx-font-size:10px;
+   
 }
 #loginBtnStyle:hover{
-    -fx-background-color:#5357A8;
+    -fx-background-color:#132B48;
+    -fx-text-fill: #FFFFFF;
 }
 #loginBtnStyle:pressed{
     -fx-background-color:#5357A8;
 }
+#invisbleBtnStyle{
+    -fx-background-color:#5357A8;
+    -fx-padding: 5 5 5 5;
+    -fx-text-fill: #FFFFFF;
+}
+
 
 
 
@@ -69,7 +95,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: #FFFFFF;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
-    -fx-padding: 0 30 0 30;
+    -fx-padding: 0 10 0 10;
 }
 
 .tab:selected
@@ -109,6 +135,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-focus-color: transparent;
     -fx-border-color: transparent;
 }
+
 
 
 

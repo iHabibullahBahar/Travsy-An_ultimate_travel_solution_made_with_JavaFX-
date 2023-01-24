@@ -10,15 +10,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BaseController">
    <children>
-      <VBox fx:id="menuVbox" layoutY="-1.0" prefHeight="560.0" prefWidth="133.0">
+      <VBox fx:id="menuVbox" layoutY="-1.0" prefHeight="560.0" prefWidth="172.0">
          <children>
             <Pane prefHeight="127.0" prefWidth="133.0" />
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToHomePage" prefHeight="35.0" prefWidth="133.0" text="Home" textFill="#f6f6f6" />
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToPlanATourPage" prefHeight="35.0" prefWidth="133.0" text="Plan A Travel" />
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToCheckWeatherPage" prefHeight="35.0" prefWidth="133.0" text="Check Weather" />
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToCovertCurrencyPage" prefHeight="35.0" prefWidth="133.0" text="Convert Currency" />
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToEmergencySOSPage" prefHeight="35.0" prefWidth="133.0" text="Emergency SOS" />
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToTravelWithTravsyPage" prefHeight="35.0" prefWidth="133.0" text="Travel With Us" />
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToHomePage" prefHeight="35.0" prefWidth="152.0" text="Home" textFill="#f6f6f6" />
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToPlanATourPage" prefHeight="35.0" prefWidth="147.0" text="Plan A Travel" />
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToCheckWeatherPage" prefHeight="35.0" prefWidth="157.0" text="Check Weather" />
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToCovertCurrencyPage" prefHeight="35.0" prefWidth="153.0" text="Convert Currency" />
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToEmergencySOSPage" prefHeight="35.0" prefWidth="147.0" text="Emergency SOS" />
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToTravelWithTravsyPage" prefHeight="35.0" prefWidth="153.0" text="Travel With Us" />
             <Pane prefHeight="200.0" prefWidth="133.0">
                <children>
                   <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="156.0" mnemonicParsing="false" onAction="#goToSettingPage" prefHeight="44.0" prefWidth="89.0" text="Setting" textFill="#ebe1e1" />

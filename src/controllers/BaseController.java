@@ -7,6 +7,7 @@ package controllers;
 
 
 import java.io.IOException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -17,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,9 +33,11 @@ public class BaseController implements Initializable{
     private Parent root;
     private Stage stage;
     private Scene scene;
+    @FXML
+    private Button planBtn;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    
+        
     }
     public void goToLoginPage(ActionEvent event) throws IOException
     {
@@ -59,7 +63,7 @@ public class BaseController implements Initializable{
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();    
+        stage.show();  
     }
     public void goToTravelWithTravsyPage(ActionEvent event) throws IOException
     {

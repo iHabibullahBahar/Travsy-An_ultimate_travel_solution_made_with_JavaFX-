@@ -14,8 +14,8 @@
       <Pane layoutX="1.0" layoutY="-2.0" prefHeight="67.0" prefWidth="850.0" />
       <Pane layoutX="236.0" layoutY="52.0" prefHeight="434.0" prefWidth="373.0" style="-fx-background-color: #1B2537;">
          <children>
-            <PasswordField layoutX="159.0" layoutY="272.0" prefHeight="30.0" prefWidth="168.0" />
-            <TextField layoutX="159.0" layoutY="232.0" prefHeight="30.0" prefWidth="168.0" />
+            <PasswordField layoutX="159.0" layoutY="272.0" prefHeight="30.0" prefWidth="168.0" promptText="pass@@123" />
+            <TextField layoutX="159.0" layoutY="232.0" prefHeight="30.0" prefWidth="168.0" promptText="messi@outlook.com" />
             <Label layoutX="79.0" layoutY="237.0" text="Email" textFill="#f4f2f2">
                <font>
                   <Font size="15.0" />
@@ -26,20 +26,20 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button id="loginBtnStyle" layoutX="70.0" layoutY="314.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Sign Up" />
+            <Button id="invisbleBtnStyle" layoutX="70.0" layoutY="314.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Sign Up" />
             <Label layoutX="162.0" layoutY="54.0" text="Sign Up" textFill="#f2efef">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
             <Hyperlink layoutX="162.0" layoutY="317.0" onAction="#goToLoginPage" text="Have an Account? Signin" />
-            <TextField layoutX="159.0" layoutY="192.0" prefHeight="30.0" prefWidth="168.0" />
+            <TextField layoutX="159.0" layoutY="192.0" prefHeight="30.0" prefWidth="168.0" promptText="messiL" />
             <Label layoutX="77.0" layoutY="196.0" text="User Name" textFill="#f4f2f2">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="158.0" layoutY="112.0" prefHeight="30.0" prefWidth="168.0" />
+            <TextField layoutX="158.0" layoutY="112.0" prefHeight="30.0" prefWidth="168.0" promptText="Lionel" />
             <Label layoutX="80.0" layoutY="155.0" text="Last Name" textFill="#f4f2f2">
                <font>
                   <Font size="15.0" />
@@ -52,6 +52,6 @@
             </Label>
          </children>
       </Pane>
-      <TextField layoutX="395.0" layoutY="204.0" prefHeight="30.0" prefWidth="168.0" />
+      <TextField layoutX="395.0" layoutY="204.0" prefHeight="30.0" prefWidth="168.0" promptText="Messi" />
    </children>
 </AnchorPane>

@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -40,21 +42,35 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TabPane layoutX="142.0" layoutY="105.0" prefHeight="455.0" prefWidth="699.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="142.0" layoutY="105.0" prefHeight="455.0" prefWidth="699.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab>
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="699.0">
                      <children>
-                        <Pane layoutX="93.0" layoutY="35.0" prefHeight="330.0" prefWidth="373.0" style="-fx-background-color: #1B2537;">
+                        <Pane layoutX="1.0" layoutY="-2.0" prefHeight="438.0" prefWidth="651.0" style="-fx-background-color: #1B2537;">
                            <children>
-                              <Label layoutX="54.0" layoutY="35.0" text="A Task List Viwe With Importance" textFill="#f2efef">
+                              <Label layoutX="54.0" layoutY="35.0" text="A list view of travel plan with Importance will show here" textFill="#f2efef">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="469.0" layoutY="323.0" mnemonicParsing="false" text="Add" />
+                              <Label layoutX="55.0" layoutY="67.0" text="A user will able to add new plan or delete plan  here" textFill="#f2efef">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
                         </Pane>
+                        <TableView layoutX="35.0" layoutY="112.0" prefHeight="200.0" prefWidth="399.0">
+                           <columns>
+                              <TableColumn prefWidth="136.6666603088379" text="Plan with description" />
+                              <TableColumn prefWidth="93.33335876464844" text="Priority" />
+                              <TableColumn prefWidth="93.99996948242188" text="Deadline" />
+                              <TableColumn prefWidth="75.0" text="Remarks" />
+                           </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
             </content>
@@ -70,13 +86,20 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Pane layoutX="104.0" layoutY="31.0" prefHeight="330.0" prefWidth="373.0" style="-fx-background-color: #1B2537;">
+                        <Pane prefHeight="455.0" prefWidth="675.0" style="-fx-background-color: #1B2537;">
                            <children>
-                              <Label layoutX="54.0" layoutY="35.0" text="A Task List View of Importannt Task" textFill="#f2efef">
+                              <Label layoutX="54.0" layoutY="35.0" text="A list view of most important plan willl show here" textFill="#f2efef">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
+                              <TableView layoutX="25.0" layoutY="102.0" prefHeight="200.0" prefWidth="324.0">
+                                 <columns>
+                                    <TableColumn prefWidth="107.99993896484375" text="Task Description" />
+                                    <TableColumn prefWidth="122.0" text="Deadline" />
+                                    <TableColumn prefWidth="93.99996948242188" text="Remarks" />
+                                 </columns>
+                              </TableView>
                            </children>
                         </Pane>
                      </children>
@@ -94,15 +117,22 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Pane layoutX="85.0" layoutY="31.0" prefHeight="330.0" prefWidth="373.0" style="-fx-background-color: #1B2537;">
+                        <Pane layoutX="-3.0" prefHeight="455.0" prefWidth="675.0" style="-fx-background-color: #1B2537;">
                            <children>
-                              <Label layoutX="54.0" layoutY="35.0" text="A Task List of Medium important task" textFill="#f2efef">
+                              <Label layoutX="54.0" layoutY="35.0" text="A  list view of Medium important plan will show here" textFill="#f2efef">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
                         </Pane>
+                        <TableView layoutX="35.0" layoutY="112.0" prefHeight="200.0" prefWidth="324.0">
+                           <columns>
+                              <TableColumn prefWidth="107.99993896484375" text="Task Description" />
+                              <TableColumn prefWidth="122.0" text="Deadline" />
+                              <TableColumn prefWidth="93.99996948242188" text="Remarks" />
+                           </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
               </content>
@@ -118,13 +148,20 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Pane layoutX="139.0" layoutY="35.0" prefHeight="330.0" prefWidth="373.0" style="-fx-background-color: #1B2537;">
+                        <Pane layoutX="-2.0" layoutY="-1.0" prefHeight="455.0" prefWidth="674.0" style="-fx-background-color: #1B2537;">
                            <children>
-                              <Label layoutX="54.0" layoutY="35.0" text="A Task List of  low  Importance" textFill="#f2efef">
+                              <Label layoutX="54.0" layoutY="35.0" text="A list view of less important plan will show here" textFill="#f2efef">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
+                              <TableView layoutX="35.0" layoutY="112.0" prefHeight="200.0" prefWidth="324.0">
+                                 <columns>
+                                    <TableColumn prefWidth="107.99993896484375" text="Task Description" />
+                                    <TableColumn prefWidth="122.0" text="Deadline" />
+                                    <TableColumn prefWidth="93.99996948242188" text="Remarks" />
+                                 </columns>
+                              </TableView>
                            </children>
                         </Pane>
                      </children>

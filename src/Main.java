@@ -1,6 +1,9 @@
 
+import java.io.IOException;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -15,11 +18,31 @@ import javafx.stage.Stage;
  * @author Habib
  */
 public class Main extends Application{
-    double x,y;
+    
+    public static double x,y;
+    public static Stage stage;
+    public static Scene scene;
+    public static Parent root;
+    public static Main mainclass;
+    
+    static public void setScene() throws IOException
+    {
+        root.setOnMousePressed(event ->{
+            x=event.getSceneX();
+            y=event.getSceneY();
+        });
+        root.setOnMouseDragged(event ->{
+            stage.setX(event.getScreenX()-x);
+            stage.setY(event.getScreenY()-y);
+        });
+    }
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("views/dashboard.fxml"));
-        Scene scene =new Scene(root);
+        
+        
+        
+        root = FXMLLoader.load(getClass().getResource("views/home.fxml"));
+        scene =new Scene(root);
         root.setOnMousePressed(event ->{
             x=event.getSceneX();
             y=event.getSceneY();
@@ -29,9 +52,11 @@ public class Main extends Application{
             stage.setY(event.getScreenY()-y);
         });
         stage.setScene(scene);
+        stage.setResizable(false);
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
+    
     public static void main(String[] args) {
         launch(args);
     }
