@@ -4,11 +4,6 @@
  */
 package controllers;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 /**
  *
@@ -16,4 +11,5 @@ import javafx.stage.Stage;
  */
 public class StaticItemsClass {
     
+    public static int lgst=0;
 }

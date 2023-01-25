@@ -1,4 +1,4 @@
-/*
+    /*
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
 */
@@ -31,7 +31,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
       -fx-border-width:0px 0px 0px 4px;*/
 }
 .button:pressed{
-    -fx-background-color:#5357A8;
+/*    -fx-background-color:#5357A8;*/
 }
 .button:active{
     -fx-background-color:#5357A8;

@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="560.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/sidebar/check_weather_sidebar.png" />
+            <Image url="@../assets/sidebar/about_sidebar.png" />
          </image>
       </ImageView>
       <VBox layoutY="100.0" prefHeight="358.0" prefWidth="175.0">

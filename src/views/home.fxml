@@ -5,17 +5,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BaseController">
    <children>
-      <Pane layoutX="1.0" layoutY="-2.0" prefHeight="67.0" prefWidth="850.0">
-         <children>
-            <Button id="loginBtnStyle" layoutX="648.0" layoutY="24.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Login" />
-            <Button id="loginBtnStyle" layoutX="745.0" layoutY="24.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Sign Up" />
-         </children>
-      </Pane>
       <ImageView fitHeight="560.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/sidebar/home_sidebar.png" />
@@ -23,60 +18,92 @@
       </ImageView>
       <VBox layoutY="100.0" prefHeight="358.0" prefWidth="175.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
+            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHomePage" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
+            <Button fx:id="planBtn" mnemonicParsing="false" onAction="#goToPlanATourPage" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
+            <Button fx:id="checkWBtn" mnemonicParsing="false" onAction="#goToCheckWeatherPage" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
+            <Button fx:id="exchangeBtn" mnemonicParsing="false" onAction="#goToExchangeRatePage" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
+            <Button fx:id="emergencyBtn" mnemonicParsing="false" onAction="#goToEmergencySOSPage" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
+            <Button fx:id="bookBtn" mnemonicParsing="false" onAction="#goToBookAnythingPage" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
+            <Button fx:id="travelWUsBtn" mnemonicParsing="false" onAction="#goToTravelWithTravsyPage" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
+            <Button fx:id="settingsBtn" mnemonicParsing="false" onAction="#goToSettingsPage" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
+            <Button fx:id="supportBtn" mnemonicParsing="false" onAction="#goToSupportPage" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
+            <Button fx:id="aboutBtn" mnemonicParsing="false" onAction="#goToAboutPage" prefHeight="36.0" prefWidth="175.0" styleClass="sideBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
          </children>
       </VBox>
+      <Pane layoutX="801.0" layoutY="-3.0" prefHeight="44.0" prefWidth="49.0">
+         <children>
+            <ImageView fitHeight="56.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/profile_frame.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="profileBtn" layoutX="7.0" layoutY="6.0" mnemonicParsing="false" onAction="#profileIconClick" prefHeight="36.0" prefWidth="36.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutY="466.0" prefHeight="123.0" prefWidth="175.0">
+         <children>
+            <BorderPane prefHeight="94.0" prefWidth="175.0">
+               <center>
+                  <ImageView fitHeight="86.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </children>
+      </Pane>
+      <Pane layoutY="-2.0" prefHeight="101.0" prefWidth="175.0">
+         <children>
+            <BorderPane layoutY="2.0" prefHeight="101.0" prefWidth="175.0">
+               <center>
+                  <ImageView fitHeight="86.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </children>
+      </Pane>
    </children>
    <cursor>
-      <Cursor fx:constant="HAND" />
+      <Cursor fx:constant="DEFAULT" />
    </cursor>
 </AnchorPane>
