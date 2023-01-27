@@ -12,6 +12,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 /*    -fx-background-image:url("../assets/bg.jpg");*/
     -fx-background-color:#E7E8E6;
 }
+
+.sideBtn{
+    -fx-background-color:transparent;
+/*    -fx-background-color:;*/
+    -fx-padding: 5 5 5 5;
+    -fx-text-fill: #FFFFFF;
+   -fx-font-weight:bold;
+   -fx-font-size:15px;
+}
+.sideBtn:hover{
+    -fx-border-color:#C4E2D5;
+    -fx-border-width:0px 0px 0px 4px;
+}
 #menuVbox
 {
     -fx-background-color:linear-gradient(#537895,#09203F);
@@ -19,12 +32,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     
 }
 .button{
-    -fx-background-color:transparent;
-/*    -fx-background-color:;*/
+/*    -fx-background-color:transparent;
+    -fx-background-color:;
     -fx-padding: 5 5 5 5;
     -fx-text-fill: #FFFFFF;
    -fx-font-weight:bold;
-   -fx-font-size:15px;
+   -fx-font-size:15px;*/
 }
 .button:hover{
 /*      -fx-border-color:#C4E2D5;
@@ -34,43 +47,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 /*    -fx-background-color:#5357A8;*/
 }
 .button:active{
-    -fx-background-color:#5357A8;
+/*    -fx-background-color:#5357A8;*/
 }
 /*//SideBar Transparent button*/
-.sideBtn{
-    
+
+
+
+
+
+
+.tempLabel{
+    -fx-text-alignment:right;
 }
-.sideBtn:hover{
-    -fx-border-color:#C4E2D5;
-    -fx-border-width:0px 0px 0px 4px;
-}
-
-
-
-
-
-#loginBtnStyle{
-    -fx-background-color:#C4E2D5;
-    -fx-padding: 5 5 5 5;
-    -fx-text-fill: #132B48;
-    -fx-font-size:10px;
-   
-}
-#loginBtnStyle:hover{
-    -fx-background-color:#132B48;
-    -fx-text-fill: #FFFFFF;
-}
-#loginBtnStyle:pressed{
-    -fx-background-color:#5357A8;
-}
-#invisbleBtnStyle{
-    -fx-background-color:#5357A8;
-    -fx-padding: 5 5 5 5;
-    -fx-text-fill: #FFFFFF;
-}
-
-
-
 
 /*Tab Pane Style*/
 #tabPane {

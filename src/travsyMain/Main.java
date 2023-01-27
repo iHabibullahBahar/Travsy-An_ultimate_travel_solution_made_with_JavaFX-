@@ -61,14 +61,12 @@ public class Main extends Application implements Initializable{
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
-    static int lg = 55;
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        mainClass = this;
     }
 
 }
