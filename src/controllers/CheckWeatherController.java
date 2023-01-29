@@ -118,25 +118,25 @@ public class CheckWeatherController implements Initializable{
     boolean validCity=false;
     
     //All the data get from API Call;
-    static String cityName="";
-    static String countryName ="";
-    static String time="";
-    static String weatherCondition="";
-    static String tempInC="";
-    static String tempFeels="";
-    static double pressure=0;
-    static int humidity=0;
-    static String sunRise="";
-    static String sunSet="";
-    static double windSpeed =0;
-    static String date = "";
-    static String day ="";
+    static String cityName="Dhaka";
+    static String countryName ="BD";
+    static String time="2:20 PM";
+    static String weatherCondition="Windy";
+    static String tempInC="25";
+    static String tempFeels="23";
+    static double pressure=1001;
+    static int humidity=70;
+    static String sunRise="6:40 AM";
+    static String sunSet="6:50 PM";
+    static double windSpeed =1.9;
+    static String date = "31 Jan 2023";
+    static String day ="Tue";
     
     /**
      * Initializes the controller class.
      */
         public void initialize(URL url, ResourceBundle rb) {
-        getWeatherReport();
+        //getWeatherReport();
         setData(); 
     }
     

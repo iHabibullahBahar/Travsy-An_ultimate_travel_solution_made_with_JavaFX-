@@ -150,13 +150,13 @@ public class CurrencyConverterController implements Initializable {
     public static String apikey = "gE40uxZ9RZTIj8qgnikDeuMQn0y2X2wD";
     public static String convertTo = "BDT";
     public static String convertFrom = "USD";
-    public static double amount = 1.9;
-    public static double rate;
-    static String convertedAmoun="";
+    public static double amount = 1;
+    public static double rate=106.15;
+    static String convertedAmoun="106.15";
     static boolean validCurrency = false;
     
     
-    static double invertRate = 0;
+    static double invertRate = 0.0094;
     
     
     /**
@@ -165,13 +165,16 @@ public class CurrencyConverterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         validCurrency = false;
-        convertCurrency();
+        setData();
+        //convertCurrency();
         
     }
+    
     public void convertBtnAction(ActionEvent event){
         getData();
         warningLabel.setText("");
         convertCurrency();
+        isValid();     
     }
     
     public void getData(){
@@ -306,7 +309,6 @@ public class CurrencyConverterController implements Initializable {
             System.out.println("Error in Making Get Request");
             validCurrency = false;
         }
-        isValid();
     }
     
     

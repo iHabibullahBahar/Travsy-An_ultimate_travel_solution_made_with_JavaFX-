@@ -2,6 +2,7 @@ package travsyMain;
 
 
 import controllers.CheckWeatherController;
+import controllers.CurrencyConverterController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -61,8 +62,17 @@ public class Main extends Application implements Initializable{
         stage.setTitle("Travsy - Make Your Travel Easy");
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
-//        CheckWeatherController chkW = new CheckWeatherController();
-//        chkW.getWeatherReport();
+        CheckWeatherController chkWCon = new CheckWeatherController();
+        CurrencyConverterController curConvrtCon =  new CurrencyConverterController();
+        try{
+            chkWCon.getWeatherReport();
+            curConvrtCon.convertCurrency();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        
         
     }
     public static void main(String[] args) {
@@ -71,6 +81,7 @@ public class Main extends Application implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
     }
 
 }
