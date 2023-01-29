@@ -5,35 +5,40 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BaseController">
    <children>
-      <Pane layoutX="1.0" layoutY="-2.0" prefHeight="67.0" prefWidth="850.0" />
-      <Pane layoutX="236.0" layoutY="52.0" prefHeight="434.0" prefWidth="373.0" style="-fx-background-color: #1B2537;">
+      <ImageView fitHeight="570.0" fitWidth="850.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/pages/log_in_page.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="480.0" layoutY="267.0" prefHeight="153.0" prefWidth="309.0">
          <children>
-            <PasswordField layoutX="159.0" layoutY="213.0" prefHeight="30.0" prefWidth="168.0" promptText="Enter Your Password" />
-            <TextField layoutX="159.0" layoutY="170.0" prefHeight="30.0" prefWidth="168.0" promptText="Enter Your User Name" />
-            <Label layoutX="78.0" layoutY="174.0" text="User Name" textFill="#f4f2f2">
+            <TextField layoutX="118.0" layoutY="10.0" prefHeight="30.0" prefWidth="173.0" promptText="Enter Your User Name" />
+            <PasswordField layoutX="118.0" layoutY="62.0" prefHeight="30.0" prefWidth="173.0" promptText="Enter Your Password" />
+            <Button id="loginBtnStyle" layoutX="110.0" layoutY="116.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Login" />
+            <Label layoutX="23.0" layoutY="15.0" text="USER NAME" textFill="WHITE">
                <font>
-                  <Font size="15.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="79.0" layoutY="217.0" text="Password" textFill="#f4f2f2">
+            <Label layoutX="24.0" layoutY="67.0" text="PASSWORD" textFill="WHITE">
                <font>
-                  <Font size="15.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button id="loginBtnStyle" layoutX="70.0" layoutY="271.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Login" />
-            <Label layoutX="162.0" layoutY="99.0" text="Log In" textFill="#f2efef">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Hyperlink layoutX="162.0" layoutY="274.0" onAction="#goToRegisterPage" text="Don't  have a account? signup" />
          </children>
       </Pane>
+      <Hyperlink layoutX="293.0" layoutY="232.0" onAction="#goToRegisterPage" text="signup" textFill="WHITE" underline="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Hyperlink>
    </children>
 </AnchorPane>

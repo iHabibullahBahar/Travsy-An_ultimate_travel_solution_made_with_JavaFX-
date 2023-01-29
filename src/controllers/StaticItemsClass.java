@@ -11,5 +11,6 @@ package controllers;
  */
 public class StaticItemsClass {
     
-    public static int lgst=0;
+     static int a = 121;
+     static String name ="Habib";
 }

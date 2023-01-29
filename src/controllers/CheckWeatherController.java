@@ -137,7 +137,7 @@ public class CheckWeatherController implements Initializable{
      */
         public void initialize(URL url, ResourceBundle rb) {
         getWeatherReport();
-        
+        setData(); 
     }
     
     public void searchCity(){
@@ -157,6 +157,7 @@ public class CheckWeatherController implements Initializable{
         if(validCity)
         {
             getWeatherReport();
+            setData();
             
         }
         else
@@ -269,10 +270,11 @@ public class CheckWeatherController implements Initializable{
                 sunSet = getDateTime((jsonObject.getJSONObject("sys").getLong("sunset")+jsonObject.getLong("timezone"))*1000, "hh:mm a");
                 windSpeed = getWindSpeed((jsonObject.getJSONObject("wind").getDouble("speed")));
             //Set it back to show the rest
-            setData();
+            
         }
         catch (Exception e){
             System.out.println("Error in Making Get Request");
+            warningLabel.setText("Error in Making Get Request. Please try again.");
         }
         
         //Boolean in parameter gives out different print statements weather or not the city they input was a real city.
@@ -292,19 +294,6 @@ public class CheckWeatherController implements Initializable{
         sunSetLabel.setText(sunSet);
         dateLabel.setText(date);
         dayLabel.setText(day);
-       
-        
-        System.out.println(cityName);
-        System.out.println(countryName);
-        System.out.println(weatherCondition);
-        System.out.println(time);
-        System.out.println(sunRise);
-        System.out.println(sunSet);
-        System.out.println(tempInC);
-        System.out.println(tempFeels);
-        System.out.println(humidity);
-        System.out.println(windSpeed);
-        
     }
     public void goToHomePage(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
@@ -398,5 +387,7 @@ public class CheckWeatherController implements Initializable{
         stage.setScene(scene);
         stage.show();   
     }
+    
+    
  
 }

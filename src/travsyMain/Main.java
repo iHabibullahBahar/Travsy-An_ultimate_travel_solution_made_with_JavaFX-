@@ -1,6 +1,7 @@
 package travsyMain;
 
 
+import controllers.CheckWeatherController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,7 +46,7 @@ public class Main extends Application implements Initializable{
         
         
         
-        root = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../views/signup.fxml"));
         scene =new Scene(root);
         root.setOnMousePressed(event ->{
             x=event.getSceneX();
@@ -60,6 +61,9 @@ public class Main extends Application implements Initializable{
         stage.setTitle("Travsy - Make Your Travel Easy");
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
+//        CheckWeatherController chkW = new CheckWeatherController();
+//        chkW.getWeatherReport();
+        
     }
     public static void main(String[] args) {
         launch(args);

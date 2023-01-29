@@ -26,6 +26,7 @@ public class BaseController{
     private Stage stage;
     private Scene scene;
     
+   
     public void goToHomePage(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -34,7 +35,7 @@ public class BaseController{
         stage.show();    
     }
     public void goToLoginPage(ActionEvent event) throws IOException{
-        System.out.println("Hello");
+        
         root = FXMLLoader.load(getClass().getResource("../views/login.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -111,7 +112,27 @@ public class BaseController{
         stage.setScene(scene);
         stage.show();    
     }
+    
+    public static void showDetails()
+    {
+        //System.out.println(StaticItemsClass.name);
+    }
     public void profileIconClick(ActionEvent event) throws IOException{
+        System.out.println(controllers.StaticItemsClass.a);
+        
+        String name1 = controllers.StaticItemsClass.name;
+        if(name1.equals("Habib"))
+        {
+            System.out.println("Hello");
+            
+        }
+        else
+        {
+            System.out.println("Fuck");
+            System.out.println(name1);
+        }
+            
+        StaticItemsClass.name="Habibullah";
         root = FXMLLoader.load(getClass().getResource("../views/profile.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
