@@ -13,18 +13,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color:#DCE4DE;
 }
 
+#field{
+    -fx-background-color:transparent;
+    -fx-border-color:ffffff;
+    -fx-border-radius:9999em;
+    -fx-border-width:1.5px;
+    -fx-font-size:1em;
+    -fx-color:ffffff;
+}
+
+
+
 .sideBtn{
     -fx-background-color:transparent;
-/*    -fx-background-color:;*/
+/*   -fx-background-color:;*/
     -fx-padding: 5 5 5 5;
     -fx-text-fill: #FFFFFF;
    -fx-font-weight:bold;
    -fx-font-size:15px;
 }
-.sideBtn:hover{
+/*.sideBtn:hover{
     -fx-border-color:#C4E2D5;
     -fx-border-width:0px 0px 0px 4px;
-}
+}*/
 #menuVbox
 {
     -fx-background-color:linear-gradient(#537895,#09203F);
@@ -51,6 +62,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 /*//SideBar Transparent button*/
 
+.scrollPane{
+    -fx-background-color:#DCE4DE;
+    
+}
 
 
 

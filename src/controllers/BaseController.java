@@ -42,6 +42,7 @@ public class BaseController{
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
     public void goToRegisterPage(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("../views/signup.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -118,28 +119,15 @@ public class BaseController{
         //System.out.println(StaticItemsClass.name);
     }
     public void profileIconClick(ActionEvent event) throws IOException{
-        System.out.println(controllers.StaticItemsClass.a);
-        
-        String name1 = controllers.StaticItemsClass.name;
-        if(name1.equals("Habib"))
-        {
-            System.out.println("Hello");
-            
-        }
-        else
-        {
-            System.out.println("Fuck");
-            System.out.println(name1);
-        }
-            
-        StaticItemsClass.name="Habibullah";
+       if(StaticItemsClass.logInStatus == true){
         root = FXMLLoader.load(getClass().getResource("../views/profile.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();   
-    }
-
-    
-    
+        stage.show();  
+       }
+       else{
+           this.goToLoginPage(event);
+       }
+    }  
 }

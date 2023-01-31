@@ -34,6 +34,8 @@ public class Main extends Application implements Initializable{
     @FXML
     public Button btn;
     
+    CheckWeatherController chkWCon = new CheckWeatherController();
+    CurrencyConverterController curConvrtCon =  new CurrencyConverterController();
 //    public void setScene(String fxml,Button btn) throws IOException
 //    {
 //            root = FXMLLoader.load(getClass().getResource(fxml));
@@ -47,7 +49,7 @@ public class Main extends Application implements Initializable{
         
         
         
-        root = FXMLLoader.load(getClass().getResource("../views/signup.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
         scene =new Scene(root);
         root.setOnMousePressed(event ->{
             x=event.getSceneX();
@@ -62,26 +64,26 @@ public class Main extends Application implements Initializable{
         stage.setTitle("Travsy - Make Your Travel Easy");
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
-        CheckWeatherController chkWCon = new CheckWeatherController();
-        CurrencyConverterController curConvrtCon =  new CurrencyConverterController();
+        
         try{
-            chkWCon.getWeatherReport();
-            curConvrtCon.convertCurrency();
+            System.out.println("Hello");
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
         
-        
     }
     public static void main(String[] args) {
         launch(args);
+        
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        System.out.println("initialize");
+        //chkWCon.getWeatherReport();
+        curConvrtCon.convertCurrency();
     }
 
 }
