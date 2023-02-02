@@ -104,5 +104,12 @@ public class LoginController implements Initializable {
         stage.setScene(scene);
         stage.show(); 
     }
+    public void goToHomePage(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();    
+    }
     
 }

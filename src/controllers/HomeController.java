@@ -96,7 +96,15 @@ public class HomeController implements Initializable{
         {
             welcomeLabel.setText(welcomeLabel.getText()+ " "+StaticItemsClass.user_name);
         }
-        chkWCon.getWeatherReport();
+        else{
+            welcomeLabel.setText(welcomeLabel.getText()+ " User");
+        }
+        
+        try{chkWCon.getWeatherReport();}
+        catch(Exception e){
+            System.out.println("unable to connect the check weather api");
+        }
+        
         
      }
     

@@ -145,9 +145,10 @@ public class CurrencyConverterController implements Initializable {
     
     
     //Gyi8ZFgwKYahCBOBAYSWldyUpNx5fA9C  -- 250 will renew at feb
+    //Whk6uA0utwQoR6NuF9gkSX4I2Umk1ll1
+    //gE40uxZ9RZTIj8qgnikDeuMQn0y2X2wD
     
-    
-    public static String apikey = "gE40uxZ9RZTIj8qgnikDeuMQn0y2X2wD";
+    public static String apikey = "Whk6uA0utwQoR6NuF9gkSX4I2Umk1ll1";
     public static String convertTo = "BDT";
     public static String convertFrom = "USD";
     public static double amount = 1;

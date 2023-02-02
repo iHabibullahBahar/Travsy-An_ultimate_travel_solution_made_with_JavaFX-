@@ -84,6 +84,12 @@ public class ProfileController implements Initializable{
         catch(SQLException e){}
     }
     BaseController baseController = new BaseController();
+    
+    public void logOutBtnAction(ActionEvent event) throws IOException{
+        StaticItemsClass.logInStatus=false;
+        baseController.goToHomePage(event);
+    }
+            
     public void goToHomePage(ActionEvent event) throws IOException
     {
         baseController.goToHomePage(event);

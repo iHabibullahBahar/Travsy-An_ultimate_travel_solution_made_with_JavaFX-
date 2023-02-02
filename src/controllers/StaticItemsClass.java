@@ -26,7 +26,7 @@ public class StaticItemsClass {
     public static Connection connectDB(){
     try{
         //plsek database
-        ///connect = DriverManager.getConnection("jdbc:mysql://134.122.10.205:3306/db_travsy?autoReconnect=true&useSSL=false","travsy_admin","admin@1221##");
+        //connect = DriverManager.getConnection("jdbc:mysql://134.122.10.205:3306/db_travsy?autoReconnect=true&useSSL=false","travsy_admin","admin@1221##");
         connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3307/db_travsy?autoReconnect=true&useSSL=false","root","");
         System.out.println("Connected Successfully");
         return connect;
