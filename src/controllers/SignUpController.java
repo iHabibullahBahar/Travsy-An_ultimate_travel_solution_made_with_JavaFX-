@@ -65,6 +65,7 @@ public class SignUpController implements Initializable{
     @FXML
     private TextField userNameField;
 
+    BaseController baseController = new BaseController();
     //"What is your pet name?","What is your childhood nick name?"
     //private String[] questions = {"What is your pet name?","What is your childhood nick name?"};
     @Override
@@ -74,18 +75,10 @@ public class SignUpController implements Initializable{
     }
     public void goToLoginPage(ActionEvent event) throws IOException{
         
-        root = FXMLLoader.load(getClass().getResource("../views/login.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        baseController.goToLoginPage(event);
     }
     public void goToHomePage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();    
+        baseController.goToHomePage(event);
     }
     public void signUpBtnAction(ActionEvent event) throws SQLException
     {
@@ -136,21 +129,32 @@ public class SignUpController implements Initializable{
                 }
                 else
                 {
-                    sql = ("INSERT INTO auth (user_name,password) values(?,?)");
-                    statement = connect.prepareStatement(sql);
-                    statement.setString(1, userNameField.getText());
-                    statement.setString(2, passwordField.getText());
-                    statement.execute();
-                    sql = ("INSERT INTO user_info (user_id,user_name) SELECT auth.user_id,auth.user_name from auth where user_name = ?");
-                    statement = connect.prepareStatement(sql);
-                    statement.setString(1, userNameField.getText());
-                    statement.execute();
-                    sql =("UPDATE user_info SET full_name = ?,email=? where user_name = ?");
-                    statement = connect.prepareStatement(sql);
-                    statement.setString(1, nameField.getText());
-                    statement.setString(2, emailField.getText());
-                    statement.setString(3, userNameField.getText());
-                    statement.execute();
+                    try{
+                        sql = ("INSERT INTO auth (user_name,password) values(?,?)");
+                        statement = connect.prepareStatement(sql);
+                        statement.setString(1, userNameField.getText());
+                        statement.setString(2, passwordField.getText());
+                        statement.execute();
+                        sql = ("INSERT INTO user_info (user_id,user_name) SELECT auth.user_id,auth.user_name from auth where user_name = ?");
+                        statement = connect.prepareStatement(sql);
+                        statement.setString(1, userNameField.getText());
+                        statement.execute();
+                        sql =("UPDATE user_info SET full_name = ?,email=? where user_name = ?");
+                        statement = connect.prepareStatement(sql);
+                        statement.setString(1, nameField.getText());
+                        statement.setString(2, emailField.getText());
+                        statement.setString(3, userNameField.getText());
+                        statement.execute();
+                        StaticItemsClass.signup_status = true;
+                        baseController.goToLoginPage(event);
+                        
+                    }
+                    catch(Exception e){
+                        System.out.println("Something went worng please try again");
+                    }
+                    
+                        
+                        
                     System.out.println("Success");
                 }
             }

@@ -52,5 +52,5 @@ public class ContactSearchModel {
     public void setCountry(String country) {
         this.country = country;
     }
-     
+    
 }

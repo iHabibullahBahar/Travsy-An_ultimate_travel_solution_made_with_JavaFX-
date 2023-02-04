@@ -50,6 +50,11 @@ public class LoginController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        if(StaticItemsClass.signup_status == true)
+        {
+            warningLabel.setText("Successfully signed up");
+            StaticItemsClass.signup_status = false;
+        }
         connect = StaticItemsClass.connectDB();
     }
     
@@ -74,6 +79,7 @@ public class LoginController implements Initializable {
                 StaticItemsClass.user_id = result.getInt("user_id");
                 StaticItemsClass.logInStatus =true;
                 baseController.profileIconClick(event);
+                
             }
             else
             {

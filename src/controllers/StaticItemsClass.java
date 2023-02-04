@@ -23,6 +23,9 @@ public class StaticItemsClass {
     static int user_id ;
     static boolean logInStatus = false;
     
+    
+    //Signup Status
+    static boolean signup_status = false;
     public static Connection connectDB(){
     try{
         //plsek database

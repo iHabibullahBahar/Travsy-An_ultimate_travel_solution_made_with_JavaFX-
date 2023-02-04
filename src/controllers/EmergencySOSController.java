@@ -88,7 +88,7 @@ public class EmergencySOSController implements Initializable{
     }
     public void goToExchangeRatePage(ActionEvent event) throws IOException
     {
-        baseController.goToCheckWeatherPage(event);
+        baseController.goToExchangeRatePage(event);
     }
     public void goToEmergencySOSPage(ActionEvent event) throws IOException
     {
