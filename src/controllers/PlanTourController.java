@@ -95,33 +95,31 @@ public class PlanTourController implements Initializable{
     
     
     private void refreshTable() {
-    try {
-        planList.clear();
+        try {
+            planList.clear();
 
-        String query = "SELECT * FROM `plan_a_tour`";
-        int id = StaticItemsClass.user_id;
-        
-        //statement.setString(1, String.valueOf(id));
-        statement = connect.prepareStatement(query);
-        result = statement.executeQuery();
-        while (result.next()){
+            String query = "SELECT * FROM `plan_a_tour`";
+            int id = StaticItemsClass.user_id;
 
-            if(result.getInt("user_id")!=id){continue;}         
-            int userId  = result.getInt("user_id");
-            int planId = result.getInt("plan_id");
-            String planDescription = result.getString("plan_description");
-            int planImportance = result.getInt("plan_importance");
-            int process =result.getInt("process");
-            LocalDate due_date = convertToLocalDateViaMilisecond(result.getDate("due_date"));
-            System.out.println(userId + " "+planId+" "+planDescription+" "+planImportance+" "+process+" "+due_date);
-            planList.add(new  PlanModel(userId,planId,planDescription,planImportance,process,due_date));
-        }
+            //statement.setString(1, String.valueOf(id));
+            statement = connect.prepareStatement(query);
+            result = statement.executeQuery();
+            while (result.next()){
 
-     
-
-    } catch (SQLException ex) {
-        Logger.getLogger(PlanTourController.class.getName()).log(Level.SEVERE, null, ex);
-    } 
+                if(result.getInt("user_id")!=id){continue;}         
+                int userId  = result.getInt("user_id");
+                int planId = result.getInt("plan_id");
+                String planDescription = result.getString("plan_description");
+                int planImportance = result.getInt("plan_importance");
+                int process =result.getInt("process");
+                LocalDate due_date = convertToLocalDateViaMilisecond(result.getDate("due_date"));
+                System.out.println(userId + " "+planId+" "+planDescription+" "+planImportance+" "+process+" "+due_date);
+                planList.add(new  PlanModel(userId,planId,planDescription,planImportance,process,due_date));
+            }
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(PlanTourController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
     
     
@@ -165,11 +163,12 @@ public class PlanTourController implements Initializable{
                         final Button editIcon = new Button("EDIT");
                         final Button deleteIcon = new Button("DELETE");
                         final Button viewIcon = new Button("VIEW");
-                        viewIcon.setStyle("-fx-background-color:#102948;"
-                        +"-fx-text-fill:#ffffff;");
+                        
                         editIcon.setStyle("-fx-background-color:#102948;"
                         +"-fx-text-fill:#ffffff;");
                         deleteIcon.setStyle("-fx-background-color:#102948;"
+                        +"-fx-text-fill:#ffffff;");
+                        viewIcon.setStyle("-fx-background-color:#102948;"
                         +"-fx-text-fill:#ffffff;");
                         //FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
                         //final FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);

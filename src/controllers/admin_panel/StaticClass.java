@@ -2,25 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controllers;
+package controllers.admin_panel;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import javafx.scene.paint.Color;
-
 
 /**
  *
  * @author Habib
  */
-public class StaticItemsClass {
-    
-    //Database tools
+public class StaticClass {
+        //Database tools
     static Connection connect ;
-    static String user_name;
+    static String user_name ="" ;
     static int user_id ;
     static boolean logInStatus = false;
     
@@ -31,11 +26,15 @@ public class StaticItemsClass {
     
     //Guide Info
     static int current_guideId ;
-    static String current_guideUserName;
+    static boolean blockStatus = false;
     
     //tour package info
     static int current_packageId;
     
+    //user Info View
+    static int currentUserId;
+    static String currentUserName;
+    static boolean userBlockStatus = false;
     
     public static Connection connectDB(){
     try{
@@ -47,4 +46,5 @@ public class StaticItemsClass {
     catch(SQLException e){e.printStackTrace();}
         return null;
     }
+    
 }

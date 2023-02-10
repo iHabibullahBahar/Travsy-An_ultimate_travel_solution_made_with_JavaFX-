@@ -49,7 +49,8 @@ public class Main extends Application implements Initializable{
         
         
         
-        root = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
+        //root = FXMLLoader.load(getClass().getResource("../views/admin_views/home_view.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../views/bookanything.fxml"));
         scene =new Scene(root);
         root.setOnMousePressed(event ->{
             x=event.getSceneX();
@@ -64,15 +65,6 @@ public class Main extends Application implements Initializable{
         stage.setTitle("Travsy - Make Your Travel Easy");
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
-        
-        try{
-            System.out.println("Hello");
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        
     }
     public static void main(String[] args) {
         launch(args);
@@ -81,9 +73,7 @@ public class Main extends Application implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("initialize");
-        //chkWCon.getWeatherReport();
-        curConvrtCon.convertCurrency();
+        
     }
 
 }

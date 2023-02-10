@@ -30,7 +30,7 @@ import javafx.stage.Stage;
  *
  * @author Habib
  */
-public class SignUpController implements Initializable{
+public class GuideSignupController implements Initializable{
 
     private Parent root;
     private Stage stage;
@@ -47,15 +47,17 @@ public class SignUpController implements Initializable{
     
     
     @FXML
-    private TextField emailField;
+    private TextField serviceField;
 
     @FXML
     private TextField nameField;
+    
+    @FXML
+    private TextField phoneField;
 
     @FXML
     private PasswordField passwordField;
-
-
+    
     @FXML
     private Button signUpBtn;
     
@@ -66,8 +68,7 @@ public class SignUpController implements Initializable{
     private TextField userNameField;
 
     BaseController baseController = new BaseController();
-    //"What is your pet name?","What is your childhood nick name?"
-    //private String[] questions = {"What is your pet name?","What is your childhood nick name?"};
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -80,15 +81,14 @@ public class SignUpController implements Initializable{
     public void goToHomePage(ActionEvent event) throws IOException{
         baseController.goToHomePage(event);
     }
-    
-    @FXML
-    public void goToGuideRegisterPage(ActionEvent event) throws IOException{
-        baseController.goToGuideRegisterPage(event);
+    public void goToRegisterPage(ActionEvent event) throws IOException
+    {
+        baseController.goToRegisterPage(event);
     }
     public void signUpBtnAction(ActionEvent event) throws SQLException
     {
         warningLabel.setText("");
-        boolean notUniqeName = false,notUniqueEmail =false;
+        boolean notUniqeName = false;
         
         if(nameField.getText().length()<3){
             warningLabel.setText("Name at least 3 characters in length");
@@ -96,71 +96,66 @@ public class SignUpController implements Initializable{
         else if(userNameField.getText().length()<4){
             warningLabel.setText("User name at least 4 characters in length");
         }
-        else if(emailField.getText().length()<3){
-            warningLabel.setText("Enter A valid Email");
+        else if((phoneField.getText().length()<10 )){
+            warningLabel.setText("Please Enter a Valid Phone no.");
+        }
+        else if(serviceField.getText().length()<3){
+            warningLabel.setText("Enter A valid Place");
         }
         else if((passwordField.getText().length()<6 )){
             warningLabel.setText("Password at least 6 characters in length");
         }
+        
         else{
             try{
-                String sql = ("SELECT * FROM user_info WHERE user_name = ?");
+                String sql = ("SELECT * FROM guide_info WHERE user_name = ?");
                 statement = connect.prepareStatement(sql);
                 statement.setString(1, userNameField.getText());
                 result = statement.executeQuery(); 
                 if(result.next())
                 {
-                    notUniqeName =true;
+                    notUniqeName = true;
                 }
-                String sql1 = ("SELECT * FROM user_info WHERE email = ?");
-                statement = connect.prepareStatement(sql1);
-                statement.setString(1, emailField.getText());
-                result = statement.executeQuery();
-                if(result.next())
-                {
-                    notUniqueEmail= true;
-                }
+                
+                
                 //Setting data to warning Label
-                if(notUniqeName && notUniqueEmail)
-                {
-                    warningLabel.setText("Email and username already exists");
-                }
-                else if(notUniqeName)
+                if(notUniqeName)
                 {
                     warningLabel.setText("Username already exists");
                 }
-                else if(notUniqueEmail){
-                    warningLabel.setText("Email already exists");
-                }
+       
                 else
                 {
                     try{
-                        sql = ("INSERT INTO auth (user_name,password) values(?,?)");
+                        String userName = userNameField.getText();
+                        sql = ("INSERT INTO auth (user_name,password,role) values(?,?,'guide')");
                         statement = connect.prepareStatement(sql);
                         statement.setString(1, userNameField.getText());
                         statement.setString(2, passwordField.getText());
                         statement.execute();
-                        sql = ("INSERT INTO user_info (user_id,user_name) SELECT auth.user_id,auth.user_name from auth where user_name = ?");
+                        System.out.println(userNameField.getText());
+                        sql = ("INSERT INTO guide_info (user_id,user_name) SELECT user_id,user_name from auth where user_name = ?");
                         statement = connect.prepareStatement(sql);
-                        statement.setString(1, userNameField.getText());
+                        statement.setString(1, userName);
                         statement.execute();
-                        sql =("UPDATE user_info SET full_name = ?,email=? where user_name = ?");
+                        sql =("UPDATE guide_info SET full_name = ?,service_place = ?,contact_no = ? where user_name = ?");
                         statement = connect.prepareStatement(sql);
                         statement.setString(1, nameField.getText());
-                        statement.setString(2, emailField.getText());
-                        statement.setString(3, userNameField.getText());
+                        statement.setString(2, serviceField.getText());
+                        statement.setString(3, phoneField.getText());
+                        statement.setString(4, userNameField.getText());
                         statement.execute();
                         StaticItemsClass.signup_status = true;
                         baseController.goToLoginPage(event);
-                        
+                        System.out.println("Success");
                     }
                     catch(Exception e){
                         System.out.println("Something went worng please try again");
                     }
                     
+                   
                         
-                        
-                    System.out.println("Success");
+                    
                 }
             }
             catch(Exception e)

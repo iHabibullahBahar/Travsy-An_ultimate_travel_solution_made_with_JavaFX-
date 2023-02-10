@@ -82,9 +82,6 @@ public class AddPlanController implements Initializable {
         String dueDate = String.valueOf(dueDatePicker.getValue());
         String importance  = importanceTextField.getText();
         String process = processTextField.getText();
-        //System.out.println(description);
-        System.out.println(description+ " "+dueDate+" "+importance+" "+process);
-        
         if (description.isEmpty()||dueDate.isEmpty()||importance.isEmpty()||process.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
@@ -97,14 +94,12 @@ public class AddPlanController implements Initializable {
             clean();
         }
     }
-
     @FXML
     private void clean() {
         descriptionTextArea.setText(null);
         dueDatePicker.setValue(null);
         importanceTextField.setText(null);
         processTextField.setText(null);
-        
     }
 
     private void getQuery() {
@@ -121,7 +116,6 @@ public class AddPlanController implements Initializable {
                     + "`process`=?,"
                     + "`due_date`= ? WHERE plan_id = '"+planId+"'";
         }
-        System.out.println(query);
     }
     private void insert() {
 
@@ -147,13 +141,6 @@ public class AddPlanController implements Initializable {
         importanceTextField.setText(Integer.toString(importance));
         processTextField.setText(Integer.toString(process));
         dueDatePicker.setValue(dueDate);
-        
-
-          
-//        nameFld.setText(name);
-//        birthFld.setValue(toLocalDate);
-//        adressFld.setText(adress);
-//        emailFld.setText(email);
 
     }
 

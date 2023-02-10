@@ -1,33 +1,87 @@
-
-package controllers;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package controllers;
+
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
 /**
  *
  * @author Habib
  */
-public class HomeController implements Initializable{
-    private Parent root;
-    private Stage stage;
-    private Scene scene;
+public class PackageInfoController implements Initializable{
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        setInfoData();
+    }
+    
+    //Database tools
+    private Connection connect = StaticItemsClass.connect;
+    private PreparedStatement statement;
+    private ResultSet result;
+    
+    
+    
     @FXML
-    private Label welcomeLabel;
+    private Label placeLabel;
+    
+    @FXML
+    private Label routeLabel;
+    
+    @FXML
+    private Label stayLabel;
+    
+    @FXML
+    private Label costLabel;
+    
+
+     
+     String place;
+     String route;
+     String stay;
+     int cost;
+     void setInfoData() {
+         String sql = ("SELECT  * FROM `package_of_tour` where package_id = ?");
+        try {
+            statement = connect.prepareStatement(sql);
+            statement.setString(1, String.valueOf(StaticItemsClass.current_packageId));
+            result = statement.executeQuery();
+            
+            if(result.next())
+            {
+                place = result.getString("place");
+                route = result.getString("route");
+                stay = result.getString("stay");
+                cost = result.getInt("price");
+
+                
+                placeLabel.setText(place);
+                routeLabel.setText(route);
+                stayLabel.setText(stay);
+                costLabel.setText(Integer.toString(cost));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GuideProfileViewControllerByUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+     }
+     
+     
+     
     
     BaseController baseController = new BaseController();
     
@@ -60,7 +114,6 @@ public class HomeController implements Initializable{
     public void goToEmergencySOSPage(ActionEvent event) throws IOException
     {
         baseController.goToEmergencySOSPage(event);
-        System.out.println("This is sos");
     }
     public void goToBookAnythingPage(ActionEvent event) throws IOException
     {
@@ -89,29 +142,5 @@ public class HomeController implements Initializable{
         baseController.profileIconClick(event);
     }
 
-    CheckWeatherController chkWCon = new CheckWeatherController();
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        if(StaticItemsClass.logInStatus == true)
-        {
-            welcomeLabel.setText(welcomeLabel.getText()+ " "+StaticItemsClass.user_name);
-        }
-        else{
-            welcomeLabel.setText(welcomeLabel.getText()+ " User");
-        }
-        
-        try{
-            
-            chkWCon.getWeatherReport();}
-        catch(Exception e){
-            System.out.println("unable to connect the check weather api");
-        }
-        try {
-            StaticItemsClass.connect = StaticItemsClass.connectDB();
-        } catch (Exception e) {
-        }
-        
-        
-     }
     
 }

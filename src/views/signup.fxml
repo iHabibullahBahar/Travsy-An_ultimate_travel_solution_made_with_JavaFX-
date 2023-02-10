@@ -17,39 +17,50 @@
             <Image url="@../assets/pages/Sign_up_page.png" />
          </image>
       </ImageView>
-      <TextField id="field" fx:id="nameField" layoutX="547.0" layoutY="208.0" prefHeight="25.0" prefWidth="190.0" promptText="Lionel Messi" />
+      <TextField id="field" fx:id="nameField" layoutX="547.0" layoutY="208.0" prefHeight="25.0" prefWidth="190.0" promptText="Sheikh Sadik" />
       <Label layoutX="548.0" layoutY="188.0" prefHeight="21.0" prefWidth="42.0" text="NAME" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Label>
-      <TextField id="field" fx:id="userNameField" layoutX="546.0" layoutY="254.0" prefHeight="21.0" prefWidth="190.0" promptText="messiL" />
+      <TextField id="field" fx:id="userNameField" layoutX="546.0" layoutY="254.0" prefHeight="21.0" prefWidth="190.0" promptText="sadikS" />
       <Label layoutX="548.0" layoutY="235.0" prefHeight="21.0" prefWidth="73.0" text="USER NAME" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Label>
-      <TextField id="field" fx:id="emailField" layoutX="547.0" layoutY="301.0" prefHeight="21.0" prefWidth="190.0" promptText="messi@outlook.com" />
+      <TextField id="field" fx:id="emailField" layoutX="547.0" layoutY="301.0" prefHeight="21.0" prefWidth="190.0" promptText="sadiks@outlook.com" />
       <Label layoutX="549.0" layoutY="282.0" prefHeight="21.0" prefWidth="73.0" text="EMAIL" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Label>
-      <PasswordField id="field" fx:id="passwordField" layoutX="548.0" layoutY="351.0" prefHeight="13.0" prefWidth="190.0" promptText="pass@@123" />
-      <Label layoutX="548.0" layoutY="332.0" prefHeight="21.0" prefWidth="73.0" text="PASSWORD" textFill="WHITE">
+      <PasswordField id="field" fx:id="passwordField" layoutX="551.0" layoutY="397.0" prefHeight="13.0" prefWidth="190.0" promptText="pass@@123" />
+      <Label layoutX="551.0" layoutY="378.0" prefHeight="21.0" prefWidth="73.0" text="PASSWORD" textFill="WHITE">
          <font>
             <Font name="System Bold" size="10.0" />
          </font>
       </Label>
-      <Button id="invisbleBtnStyle" fx:id="signUpBtn" layoutX="594.0" layoutY="394.0" mnemonicParsing="false" onAction="#signUpBtnAction" prefHeight="9.0" prefWidth="89.0" text="Sign Up" />
+      <Button id="invisbleBtnStyle" fx:id="signUpBtn" layoutX="595.0" layoutY="434.0" mnemonicParsing="false" onAction="#signUpBtnAction" prefHeight="9.0" prefWidth="89.0" text="Sign Up" />
       <Hyperlink layoutX="341.0" layoutY="236.0" onAction="#goToLoginPage" text="Signin" textFill="WHITE" underline="true">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Hyperlink>
-      <Label fx:id="warningLabel" layoutX="510.0" layoutY="439.0" prefHeight="28.0" prefWidth="257.0" textAlignment="CENTER" textFill="RED">
+      <Label fx:id="warningLabel" layoutX="513.0" layoutY="465.0" prefHeight="28.0" prefWidth="257.0" textAlignment="CENTER" textFill="RED">
          <font>
             <Font size="14.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="377.0" layoutY="265.0" onAction="#goToGuideRegisterPage" text="sign up" textFill="WHITE" underline="true">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Hyperlink>
+      <TextField id="field" fx:id="phoneField" layoutX="549.0" layoutY="348.0" prefHeight="21.0" prefWidth="190.0" promptText="01999111111" />
+      <Label layoutX="551.0" layoutY="329.0" prefHeight="21.0" prefWidth="73.0" text="PHONE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
          </font>
       </Label>
    </children>

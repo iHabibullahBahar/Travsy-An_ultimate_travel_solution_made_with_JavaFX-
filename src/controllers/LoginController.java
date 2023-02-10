@@ -98,9 +98,6 @@ public class LoginController implements Initializable {
         stage.setScene(scene);
         stage.show(); 
     }
-
-    
-
     
     @FXML
     private void goToResetPasswordPage(ActionEvent event) throws IOException {

@@ -49,7 +49,15 @@ public class BaseController{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();    
-    }   
+    }
+    @FXML
+    public void goToGuideRegisterPage(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("../views/guidesignup.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();    
+    }
     public void goToPlanATourPage(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("../views/planatour.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

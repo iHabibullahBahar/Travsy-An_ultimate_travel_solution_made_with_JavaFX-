@@ -53,8 +53,6 @@ public class ProfileController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         connect = StaticItemsClass.connectDB();
         showProfileDetails();
-        System.out.println(StaticItemsClass.user_name);
-        System.out.println(StaticItemsClass.user_id);
     }
     //private int user_id = StaticItemsClass.user_id;
     
