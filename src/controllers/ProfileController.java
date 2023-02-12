@@ -11,6 +11,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
+import java.util.prefs.Preferences;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -81,13 +85,20 @@ public class ProfileController implements Initializable{
         }
         catch(SQLException e){}
     }
-    BaseController baseController = new BaseController();
-    
+
+    Preferences prefs = Preferences.userRoot().node("/user/custom/root");
     public void logOutBtnAction(ActionEvent event) throws IOException{
+        try {
+            prefs.clear();
+            
+        } catch (BackingStoreException ex) {
+            Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         StaticItemsClass.logInStatus=false;
         baseController.goToHomePage(event);
     }
             
+    BaseController baseController = new BaseController();
     public void goToHomePage(ActionEvent event) throws IOException
     {
         baseController.goToHomePage(event);
@@ -111,12 +122,11 @@ public class ProfileController implements Initializable{
     }
     public void goToExchangeRatePage(ActionEvent event) throws IOException
     {
-        baseController.goToCheckWeatherPage(event);
+        baseController.goToExchangeRatePage(event);
     }
     public void goToEmergencySOSPage(ActionEvent event) throws IOException
     {
         baseController.goToEmergencySOSPage(event);
-        System.out.println("This is sos");
     }
     public void goToBookAnythingPage(ActionEvent event) throws IOException
     {
@@ -139,10 +149,10 @@ public class ProfileController implements Initializable{
     {
         baseController.goToAboutPage(event);
     }
-        public void profileIconClick(ActionEvent event) throws IOException
+    //Profile Icon Click Handeler 
+    public void profileIconClick(ActionEvent event) throws IOException
     {
         baseController.profileIconClick(event);
     }
-    
     
 }

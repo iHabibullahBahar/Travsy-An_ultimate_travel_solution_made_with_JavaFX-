@@ -18,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +32,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -59,6 +62,8 @@ public class UserViewController implements Initializable{
     UserModel userModel = null;
     
     
+    @FXML
+    private TextField keywordsField;
     
     @FXML
     private TableView<UserModel> userInfoTableView;
@@ -178,6 +183,37 @@ public class UserViewController implements Initializable{
         
         actionColumn.setCellFactory(cellFoctory);
         userInfoTableView.setItems(userList);
+        
+        
+        FilteredList<UserModel> filteredData = new FilteredList<>(userList, b-> true);
+            keywordsField.textProperty().addListener((observable,oldValue,newValue)->{
+            filteredData.setPredicate(UserModel ->{
+                if(newValue.isEmpty()||newValue.isBlank()||newValue == null){
+                    return true;
+                }
+                String searchKeywords = newValue.toLowerCase();
+                if(UserModel.getUserName().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(UserModel.getActivityStatus().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(UserModel.getEmail().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(Integer.toString(UserModel.getUserId()).indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(UserModel.getFullName().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else
+                    return false;
+            });
+        });
+            SortedList<UserModel>sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(userInfoTableView.comparatorProperty());
+            userInfoTableView.setItems(sortedData);
     }
     
     

@@ -22,7 +22,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
+import javax.management.relation.Role;
+import controllers.admin_panel.StaticClass;
+import java.util.prefs.Preferences;
 /**
  * FXML Controller class
  *
@@ -45,6 +47,8 @@ public class LoginController implements Initializable {
     private Label warningLabel;
     @FXML
     private TextField userNameTextField;
+    
+    String role;
     /**
      * Initializes the controller class.
      */
@@ -58,7 +62,7 @@ public class LoginController implements Initializable {
         connect = StaticItemsClass.connectDB();
     }
     
-    
+    Preferences prefs = Preferences.userRoot().node("/user/custom/root");
     //reference of BaseController Class
     BaseController baseController = new BaseController();
     
@@ -74,21 +78,42 @@ public class LoginController implements Initializable {
             result = statement.executeQuery(); 
             if(result.next())
             {
+                String userName = result.getString("user_name");
+                int userId = result.getInt("user_id");
+                StaticItemsClass.user_name = userName;
+                StaticItemsClass.user_id = userId;
                 
-                StaticItemsClass.user_name = result.getString("user_name");
-                StaticItemsClass.user_id = result.getInt("user_id");
-                StaticItemsClass.logInStatus =true;
-                baseController.profileIconClick(event);
-                
+                role = result.getString("role");
+                prefs.put("username", userName);
+                prefs.putInt("userid", userId);
+                prefs.putBoolean("logInStatus", true);
+                prefs.put("role", role);
+                roleChecker(event);
             }
             else
             {
                 warningLabel.setText("Wrong user name or Password");
-                System.out.println("Wrong user name or Password");
             }
         }
         catch(Exception e){e.printStackTrace();}
     }
+    public void roleChecker(ActionEvent event) throws IOException{
+        if(role.equals("user")){
+            
+            baseController.profileIconClick(event);
+        }
+        else if(role.equals("admin"))
+        {
+            baseController.goToAdminPage(event);
+        }
+        else if(role.equals("guide"))
+        {
+            baseController.goToGuidePage(event);
+        }
+            
+    }
+    
+        
 
     @FXML
     private void goToRegisterPage(ActionEvent event) throws IOException {

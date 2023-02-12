@@ -138,4 +138,19 @@ public class BaseController{
            this.goToLoginPage(event);
        }
     }  
+    public void goToAdminPage(ActionEvent event)throws IOException{
+        root = FXMLLoader.load(getClass().getResource("../views/admin_views/home_view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void goToGuidePage(ActionEvent event)throws IOException{
+        root = FXMLLoader.load(getClass().getResource("../views/guide_views/home.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
 }

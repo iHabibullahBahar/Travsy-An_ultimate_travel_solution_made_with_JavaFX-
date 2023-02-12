@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.admin_panel.HomeController">
    
@@ -13,11 +18,48 @@
             <Image url="@../../assets/admin_pages/home_view_page.png" />
          </image>
       </ImageView>
+      <ScrollPane layoutX="175.0" layoutY="71.0" prefHeight="498.0" prefWidth="671.0" style="-fx-background-color: #C4E4D5;">
+        <content>
+          <AnchorPane id="scrollPaneAdminPage" minHeight="0.0" minWidth="0.0" prefHeight="638.0" prefWidth="658.0">
+               <children>
+                  <TableView fx:id="orderTableView" layoutX="17.0" prefHeight="305.0" prefWidth="630.0">
+                    <columns>
+                      <TableColumn fx:id="orderIdColumn" prefWidth="105.33332633972168" text="Order Id" />
+                      <TableColumn fx:id="packageIdColumn" prefWidth="148.6666488647461" text="Package Id" />
+                        <TableColumn fx:id="userIdColumn" prefWidth="123.3333740234375" text="User Id" />
+                        <TableColumn fx:id="userNameColumn" prefWidth="110.0" text="User Name" />
+                        <TableColumn fx:id="orderTimeColumn" prefWidth="144.00003051757812" text="Order Time" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="gOrderTableView" layoutX="17.0" layoutY="360.0" prefHeight="286.0" prefWidth="630.0">
+                     <columns>
+                        <TableColumn fx:id="gOrderIdColumn" prefWidth="75.0" text="Order Id" />
+                        <TableColumn fx:id="guideIdColumn" prefWidth="111.9999771118164" text="Guide Id" />
+                        <TableColumn fx:id="guideNameColumn" prefWidth="75.0" text="Guide Name" />
+                        <TableColumn fx:id="gUserIdColumn" prefWidth="112.00003051757812" text="User Id" />
+                        <TableColumn fx:id="gUserNameColumn" prefWidth="143.33340454101562" text="User Name" />
+                        <TableColumn fx:id="gOrderTimeColumn" prefWidth="111.33331298828125" text="Order Time" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="17.0" layoutY="333.0" text="Guides Hire List">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
       <Button layoutX="-3.0" layoutY="141.0" mnemonicParsing="false" onAction="#goToHomePage" opacity="0.0" prefHeight="35.0" prefWidth="178.0" />
       <Button layoutX="-3.0" layoutY="179.0" mnemonicParsing="false" onAction="#goToUsersPage" opacity="0.0" prefHeight="35.0" prefWidth="178.0" />
       <Button layoutX="-3.0" layoutY="215.0" mnemonicParsing="false" onAction="#goToGuidesPage" opacity="0.0" prefHeight="35.0" prefWidth="178.0" />
       <Button layoutX="-3.0" layoutY="251.0" mnemonicParsing="false" onAction="#goToPackagesPage" opacity="0.0" prefHeight="35.0" prefWidth="178.0" />
       <Button layoutX="31.0" layoutY="514.0" mnemonicParsing="false" onAction="#goToLoginPage" opacity="0.03" prefHeight="29.0" prefWidth="104.0" />
       <Button layoutX="790.0" layoutY="14.0" mnemonicParsing="false" onAction="#profileIconClick" opacity="0.02" prefHeight="43.0" prefWidth="46.0" />
+      <Label layoutX="190.0" layoutY="48.0" text="Tour Package Order List">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

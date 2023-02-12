@@ -4,6 +4,9 @@
  */
 package controllers.admin_panel;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -21,6 +24,10 @@ public class AdminBaseController {
     
     public void goToLoginPage(ActionEvent event) throws IOException{
         
+        try {
+            StaticClass.prefs.clear();
+        } catch (BackingStoreException ex) {
+        }
         root = FXMLLoader.load(getClass().getResource("../../views/login.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -57,7 +64,8 @@ public class AdminBaseController {
         stage.show();    
     }
     public void profileIconClick(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../../views/profile.fxml"));
+        
+        root = FXMLLoader.load(getClass().getResource("../../views/admin_views/admin_profile.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -147,13 +147,14 @@ public class CurrencyConverterController implements Initializable {
     //Gyi8ZFgwKYahCBOBAYSWldyUpNx5fA9C  -- 250 will renew at feb
     //Whk6uA0utwQoR6NuF9gkSX4I2Umk1ll1
     //gE40uxZ9RZTIj8qgnikDeuMQn0y2X2wD
+    //
     
-    public static String apikey = "Whk6uA0utwQoR6NuF9gkSX4I2Umk1ll1";
+    public static String apikey = "gE40uxZ9RZTIj8qgnikDeuMQn0y2X2wD";
     public static String convertTo = "BDT";
     public static String convertFrom = "USD";
     public static double amount = 1;
-    public static double rate=106.15;
-    static String convertedAmoun="106.15";
+    public static double rate=104.50;
+    static String convertedAmoun="104.50";
     static boolean validCurrency = false;
     
     
@@ -248,6 +249,7 @@ public class CurrencyConverterController implements Initializable {
         baseCurrencyField.setText(convertFrom);
         convertCurrencyField.setText(convertTo);
         convertCurrency();
+        setData();
     }
     
     public String getFormattedValue(double rate)
@@ -314,95 +316,60 @@ public class CurrencyConverterController implements Initializable {
     
     
     
-    public void goToHomePage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();    
+    BaseController baseController = new BaseController();
+    public void goToHomePage(ActionEvent event) throws IOException
+    {
+        baseController.goToHomePage(event);
     }
-    public void goToLoginPage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/login.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void goToLoginPage(ActionEvent event) throws IOException
+    {
+       baseController.goToLoginPage(event);
     }
-    public void goToRegisterPage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/signup.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();    
-    }   
-    public void goToPlanATourPage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/planatour.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();  
+    public void goToRegisterPage(ActionEvent event) throws IOException
+    {
+        baseController.goToRegisterPage(event);
     }
-    public void goToCheckWeatherPage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/checkweather.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();    
+    
+    public void goToPlanATourPage(ActionEvent event) throws IOException
+    {
+         baseController.goToPlanATourPage(event);
     }
-    public void goToExchangeRatePage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/convertcurrency.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();    
+    public void goToCheckWeatherPage(ActionEvent event) throws IOException
+    {
+        baseController.goToCheckWeatherPage(event);
     }
-    public void goToEmergencySOSPage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/sos.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();    
+    public void goToExchangeRatePage(ActionEvent event) throws IOException
+    {
+        baseController.goToExchangeRatePage(event);
     }
-    public void goToBookAnythingPage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/bookanything.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();    
+    public void goToEmergencySOSPage(ActionEvent event) throws IOException
+    {
+        baseController.goToEmergencySOSPage(event);
     }
-    public void goToTravelWithTravsyPage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/travelwithtravsy.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();    
+    public void goToBookAnythingPage(ActionEvent event) throws IOException
+    {
+         baseController.goToBookAnythingPage(event);
     }
-    public void goToSettingsPage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/setting.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();    
+    public void goToTravelWithTravsyPage(ActionEvent event) throws IOException
+    {
+        baseController.goToTravelWithTravsyPage(event);
     }
-    public void goToSupportPage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/support.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();    
+    
+    public void goToSettingsPage(ActionEvent event) throws IOException
+    {
+        baseController.goToSettingsPage(event);
     }
-    public void goToAboutPage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/about.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();    
+    public void goToSupportPage(ActionEvent event) throws IOException
+    {
+        baseController.goToSupportPage(event);
     }
-    public void profileIconClick(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/profile.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();   
+    public void goToAboutPage(ActionEvent event) throws IOException
+    {
+        baseController.goToAboutPage(event);
+    }
+    //Profile Icon Click Handeler 
+    public void profileIconClick(ActionEvent event) throws IOException
+    {
+        baseController.profileIconClick(event);
     }
 }

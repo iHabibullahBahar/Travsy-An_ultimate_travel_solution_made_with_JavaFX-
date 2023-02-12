@@ -38,6 +38,9 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import models.GuideModel;
 import controllers.StaticItemsClass;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -60,6 +63,9 @@ public class GuideViewController implements Initializable{
     private Parent root;
     private Stage stage;
     private Scene scene;
+    
+    @FXML
+    private TextField keywordsField;
     
     @FXML
     private TableView<GuideModel> guideTableView;
@@ -167,6 +173,34 @@ public class GuideViewController implements Initializable{
         
         actionColumn.setCellFactory(cellFoctory);
         guideTableView.setItems(guideList);
+        
+        
+        FilteredList<GuideModel> filteredData = new FilteredList<>(guideList, b-> true);
+            keywordsField.textProperty().addListener((observable,oldValue,newValue)->{
+            filteredData.setPredicate(GuideModel ->{
+                if(newValue.isEmpty()||newValue.isBlank()||newValue == null){
+                    return true;
+                }
+                String searchKeywords = newValue.toLowerCase();
+                if(GuideModel.getName().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(GuideModel.getPlaceOfService().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(GuideModel.getStatus().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(Integer.toString(GuideModel.getGuideId()).indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else
+                    return false;
+            });
+        });
+            SortedList<GuideModel>sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(guideTableView.comparatorProperty());
+            guideTableView.setItems(sortedData);
     }
     
     

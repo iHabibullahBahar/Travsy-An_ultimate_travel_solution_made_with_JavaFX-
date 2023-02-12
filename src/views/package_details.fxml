@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PackageInfoController">
    <children>
@@ -114,6 +115,12 @@
       <Label fx:id="stayLabel" layoutX="297.0" layoutY="301.0" text="Label" />
       <Label fx:id="costLabel" layoutX="296.0" layoutY="334.0" text="Label" />
       <JFXTextArea fx:id="decriptionTextArea" layoutX="539.0" layoutY="257.0" prefHeight="101.0" prefWidth="256.0" />
+      <Button fx:id="bookBtn" layoutX="670.0" layoutY="408.0" mnemonicParsing="false" onAction="#bookPackage" prefHeight="29.0" prefWidth="104.0" style="-fx-background-color: #102948;" text="Buy Package" textFill="WHITE" />
+      <Label fx:id="promtLabel" layoutX="328.0" layoutY="390.0" prefHeight="29.0" prefWidth="263.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

@@ -19,6 +19,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,6 +33,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -58,6 +61,9 @@ public class TravelWithTravsyController implements Initializable{
     private Parent root;
     private Stage stage;
     private Scene scene;
+    
+    @FXML
+    private TextField keywordsField;
     
     @FXML
     private TableView<PackageModel> packageTableView;
@@ -171,6 +177,34 @@ public class TravelWithTravsyController implements Initializable{
         
         actionColumn.setCellFactory(cellFoctory);
         packageTableView.setItems(packageList);
+        
+        
+        FilteredList<PackageModel> filteredData = new FilteredList<>(packageList, b-> true);
+            keywordsField.textProperty().addListener((observable,oldValue,newValue)->{
+            filteredData.setPredicate(PackageModel ->{
+                if(newValue.isEmpty()||newValue.isBlank()||newValue == null){
+                    return true;
+                }
+                String searchKeywords = newValue.toLowerCase();
+                if(PackageModel.getPalce().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(PackageModel.getRoute().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(PackageModel.getStay().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+//                else if(PackageModel.getDate().indexOf(searchKeywords)> -1){
+//                    return true;
+//                }
+                else
+                    return false;
+            });
+        });
+            SortedList<PackageModel>sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(packageTableView.comparatorProperty());
+            packageTableView.setItems(sortedData);
     }
         
     
@@ -198,12 +232,11 @@ public class TravelWithTravsyController implements Initializable{
     }
     public void goToExchangeRatePage(ActionEvent event) throws IOException
     {
-        baseController.goToCheckWeatherPage(event);
+        baseController.goToExchangeRatePage(event);
     }
     public void goToEmergencySOSPage(ActionEvent event) throws IOException
     {
         baseController.goToEmergencySOSPage(event);
-        System.out.println("This is sos");
     }
     public void goToBookAnythingPage(ActionEvent event) throws IOException
     {

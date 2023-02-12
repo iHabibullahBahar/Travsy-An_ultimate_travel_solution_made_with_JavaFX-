@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controllers;
-import utils.emergencysos.ContactSearchModel;
+import models.ContactSearchModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -58,9 +58,64 @@ public class EmergencySOSController implements Initializable{
     ObservableList <ContactSearchModel> contactSearchModelObservableList = FXCollections.observableArrayList();
     
     
-    
-    
-    
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        connect = StaticItemsClass.connectDB();
+        String sql = ("SELECT contact_no,service_name,place_of_service,country_name from emergency_sos");
+        try{
+            statement = connect.prepareStatement(sql);
+            result = statement.executeQuery(); 
+            while(result.next())
+            {
+                String contactNo = result.getString("contact_no");
+                String serviceName = result.getString("service_name");
+                String placeOfService = result.getString("place_of_service");
+                String country = result.getString("country_name");
+                contactSearchModelObservableList.add(new ContactSearchModel(contactNo,serviceName,placeOfService,country));
+                //contactSearchModelObservableList.add(new ContactSearchModel())
+            }
+            contactNoColumn.setCellValueFactory(new PropertyValueFactory<>("contactNo"));
+            serviceNameColumn.setCellValueFactory(new PropertyValueFactory<>("ServiceName"));
+            placeOfServiceColumn.setCellValueFactory(new PropertyValueFactory<>("place"));
+            countryNameColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
+            
+            sosListTableview.setItems(contactSearchModelObservableList);
+            
+            
+            FilteredList<ContactSearchModel> filteredData = new FilteredList<>(contactSearchModelObservableList, b-> true);
+            keywordsField.textProperty().addListener((observable,oldValue,newValue)->{
+            filteredData.setPredicate(ContactSearchModel ->{
+                if(newValue.isEmpty()||newValue.isBlank()||newValue == null){
+                    return true;
+                }
+                String searchKeywords = newValue.toLowerCase();
+                if(ContactSearchModel.getContactNo().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(ContactSearchModel.getServiceName().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(ContactSearchModel.getPlace().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(ContactSearchModel.getCountry().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else
+                    return false;
+            });
+        });
+            SortedList<ContactSearchModel>sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(sosListTableview.comparatorProperty());
+            sosListTableview.setItems(sortedData);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
     
     
     
@@ -93,7 +148,6 @@ public class EmergencySOSController implements Initializable{
     public void goToEmergencySOSPage(ActionEvent event) throws IOException
     {
         baseController.goToEmergencySOSPage(event);
-        System.out.println("This is sos");
     }
     public void goToBookAnythingPage(ActionEvent event) throws IOException
     {
@@ -120,64 +174,5 @@ public class EmergencySOSController implements Initializable{
     public void profileIconClick(ActionEvent event) throws IOException
     {
         baseController.profileIconClick(event);
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        connect = StaticItemsClass.connectDB();
-        String sql = ("SELECT contact_no,service_name,place_of_service,country_name from emergency_sos");
-        try{
-            statement = connect.prepareStatement(sql);
-            result = statement.executeQuery(); 
-            while(result.next())
-            {
-                //contactSearchModelObservableList.add(new ContactSearchModel(result.getString("contact_no")));
-                
-                String contactNo = result.getString("contact_no");
-                String serviceName = result.getString("service_name");
-                String placeOfService = result.getString("place_of_service");
-                String country = result.getString("country_name");
-                //System.out.println(contactNo+" "+serviceName+" "+placeOfService+" "+country);
-                contactSearchModelObservableList.add(new ContactSearchModel(contactNo,serviceName,placeOfService,country));
-                //contactSearchModelObservableList.add(new ContactSearchModel())
-            }
-            contactNoColumn.setCellValueFactory(new PropertyValueFactory<>("contactNo"));
-            serviceNameColumn.setCellValueFactory(new PropertyValueFactory<>("ServiceName"));
-            placeOfServiceColumn.setCellValueFactory(new PropertyValueFactory<>("place"));
-            countryNameColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
-            
-            sosListTableview.setItems(contactSearchModelObservableList);
-            FilteredList<ContactSearchModel> filteredData = new FilteredList<>(contactSearchModelObservableList, b-> true);
-            
-            keywordsField.textProperty().addListener((observable,oldValue,newValue)->{
-            filteredData.setPredicate(ContactSearchModel ->{
-                if(newValue.isEmpty()||newValue.isBlank()||newValue == null){
-                    return true;
-                }
-                String searchKeywords = newValue.toLowerCase();
-                if(ContactSearchModel.getContactNo().toLowerCase().indexOf(searchKeywords)> -1){
-                    return true;
-                }
-                else if(ContactSearchModel.getServiceName().toLowerCase().indexOf(searchKeywords)> -1){
-                    return true;
-                }
-                else if(ContactSearchModel.getPlace().toLowerCase().indexOf(searchKeywords)> -1){
-                    return true;
-                }
-                else if(ContactSearchModel.getCountry().toLowerCase().indexOf(searchKeywords)> -1){
-                    return true;
-                }
-                else
-                    return false;
-            });
-        });
-            SortedList<ContactSearchModel>sortedData = new SortedList<>(filteredData);
-            sortedData.comparatorProperty().bind(sosListTableview.comparatorProperty());
-            sosListTableview.setItems(sortedData);
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
     }
 }

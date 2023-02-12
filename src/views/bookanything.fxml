@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BookAGuideController">
    <children>
@@ -111,19 +112,23 @@
             </BorderPane>
          </children>
       </Pane>
-      <TableView fx:id="guideTableView" layoutX="216.0" layoutY="131.0" prefHeight="399.0" prefWidth="607.0">
+      <TableView fx:id="guideTableView" layoutX="190.0" layoutY="140.0" prefHeight="399.0" prefWidth="641.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="124.66670227050781" text="Name" />
           <TableColumn fx:id="placeOfServiceColumn" prefWidth="108.6666259765625" text="Place of Service" />
             <TableColumn fx:id="hourlyRateColumn" prefWidth="89.99996948242188" text="Hourly Rate" />
-            <TableColumn fx:id="dailyRateColumn" prefWidth="79.33331298828125" text="Daily Rate" />
-            <TableColumn fx:id="customColumn" prefWidth="69.33331298828125" text="Custom" />
-            <TableColumn fx:id="ratingColumn" prefWidth="49.33331298828125" text="Rating" />
-            <TableColumn fx:id="actionColumn" prefWidth="87.33331298828125" text="View Profile" />
+            <TableColumn fx:id="dailyRateColumn" prefWidth="97.99993896484375" text="Daily Rate" />
+            <TableColumn fx:id="customColumn" prefWidth="81.3333740234375" text="Custom" />
+            <TableColumn fx:id="ratingColumn" prefWidth="59.33331298828125" text="Rating" />
+            <TableColumn fx:id="actionColumn" prefWidth="79.33331298828125" text="View Profile" />
         </columns>
       </TableView>
-      <TextField layoutX="437.0" layoutY="87.0" />
-      <Label layoutX="613.0" layoutY="90.0" text="Search" />
+      <TextField id="keywordsField" fx:id="keywordsField" layoutX="281.0" layoutY="97.0" promptText="keywords" />
+      <Label id="keywordsField" layoutX="440.0" layoutY="101.0" text="Search Anything">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

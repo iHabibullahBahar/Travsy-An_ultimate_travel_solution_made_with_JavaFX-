@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.prefs.Preferences;
 import javafx.scene.paint.Color;
 
 
@@ -18,10 +19,11 @@ import javafx.scene.paint.Color;
  */
 public class StaticItemsClass {
     
+    Preferences prefs = Preferences.userRoot().node("/user/custom/root");
     //Database tools
     static Connection connect ;
     static String user_name;
-    static int user_id ;
+    static int user_id;
     static boolean logInStatus = false;
     
     

@@ -3,9 +3,11 @@ package travsyMain;
 
 import controllers.CheckWeatherController;
 import controllers.CurrencyConverterController;
+import controllers.StaticItemsClass;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,23 +36,31 @@ public class Main extends Application implements Initializable{
     @FXML
     public Button btn;
     
-    CheckWeatherController chkWCon = new CheckWeatherController();
-    CurrencyConverterController curConvrtCon =  new CurrencyConverterController();
-//    public void setScene(String fxml,Button btn) throws IOException
-//    {
-//            root = FXMLLoader.load(getClass().getResource(fxml));
-//            stage = (Stage)btn.getScene().getWindow();
-//            scene = new Scene(root);
-//            stage.setScene(scene);
-//            stage.show();
-//    }
+    Preferences prefs = Preferences.userRoot().node("/user/custom/root");
+    
+    
     @Override
     public void start(Stage stage) throws Exception {
-        
-        
-        
+        if(prefs.getBoolean("logInStatus", false)){
+            String role = prefs.get("role", "none");
+            if(role.equals("admin")){
+                root = FXMLLoader.load(getClass().getResource("../views/admin_views/home_view.fxml"));
+            }
+            else if(role.equals("user")){
+                root = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
+            }
+            else if(role.equals("guide")){
+                root = FXMLLoader.load(getClass().getResource("../views/guide_views/home.fxml"));
+            }
+             
+        }
+        else
+        {
+            root = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
+        }
+        //root = FXMLLoader.load(getClass().getResource("../views/guide_views/home.fxml"));
         //root = FXMLLoader.load(getClass().getResource("../views/admin_views/home_view.fxml"));
-        root = FXMLLoader.load(getClass().getResource("../views/bookanything.fxml"));
+        //root = FXMLLoader.load(getClass().getResource("../views/login.fxml"));
         scene =new Scene(root);
         root.setOnMousePressed(event ->{
             x=event.getSceneX();
@@ -63,7 +73,6 @@ public class Main extends Application implements Initializable{
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setTitle("Travsy - Make Your Travel Easy");
-        //stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
     public static void main(String[] args) {

@@ -16,6 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +31,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -60,6 +63,9 @@ public class BookAGuideController implements Initializable{
     private Parent root;
     private Stage stage;
     private Scene scene;
+    
+    @FXML
+    private TextField keywordsField;
     
     @FXML
     private TableView<GuideModel> guideTableView;
@@ -179,6 +185,33 @@ public class BookAGuideController implements Initializable{
         
         actionColumn.setCellFactory(cellFoctory);
         guideTableView.setItems(guideList);
+        
+        FilteredList<GuideModel> filteredData = new FilteredList<>(guideList, b-> true);
+            keywordsField.textProperty().addListener((observable,oldValue,newValue)->{
+            filteredData.setPredicate(GuideModel ->{
+                if(newValue.isEmpty()||newValue.isBlank()||newValue == null){
+                    return true;
+                }
+                String searchKeywords = newValue.toLowerCase();
+                if(GuideModel.getName().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(GuideModel.getPlaceOfService().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+                else if(GuideModel.getStatus().toLowerCase().indexOf(searchKeywords)> -1){
+                    return true;
+                }
+//                else if(GuideMode.toLowerCase().indexOf(searchKeywords)> -1){
+//                    return true;
+//                }
+                else
+                    return false;
+            });
+        });
+            SortedList<GuideModel>sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(guideTableView.comparatorProperty());
+            guideTableView.setItems(sortedData);
     }
         
     
@@ -206,7 +239,7 @@ public class BookAGuideController implements Initializable{
     }
     public void goToExchangeRatePage(ActionEvent event) throws IOException
     {
-        baseController.goToCheckWeatherPage(event);
+        baseController.goToExchangeRatePage(event);
     }
     public void goToEmergencySOSPage(ActionEvent event) throws IOException
     {

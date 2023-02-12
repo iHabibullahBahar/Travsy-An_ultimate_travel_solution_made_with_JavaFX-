@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 /**
@@ -48,12 +49,17 @@ public class PackageInfoController implements Initializable{
     @FXML
     private Label costLabel;
     
-
+    @FXML
+    private Label promtLabel; 
+    
+    @FXML 
+    private Button bookBtn;       
      
      String place;
      String route;
      String stay;
      int cost;
+     int orderNumber = 0;
      void setInfoData() {
          String sql = ("SELECT  * FROM `package_of_tour` where package_id = ?");
         try {
@@ -81,6 +87,30 @@ public class PackageInfoController implements Initializable{
      }
      
      
+     public void bookPackage(){
+        promtLabel.setText("");
+        if(orderNumber>3)
+        {
+            promtLabel.setText("You Can place 3 orders at a time");
+            bookBtn.setVisible(false); 
+        }
+        else{
+            String sql = "INSERT INTO `package_order`(`package_id`, `user_id`, `user_name`) VALUES (?,?,?)";
+            try {
+                statement = connect.prepareStatement(sql);
+                statement.setString(1, String.valueOf(StaticItemsClass.current_packageId));
+                statement.setString(2, String.valueOf(StaticItemsClass.user_id));
+                statement.setString(3, StaticItemsClass.user_name);
+                statement.execute();
+                promtLabel.setText("Successfully Placed");
+                orderNumber=orderNumber+1;
+             } catch (Exception e) {
+             }
+        }
+            
+            
+        
+     }
      
     
     BaseController baseController = new BaseController();

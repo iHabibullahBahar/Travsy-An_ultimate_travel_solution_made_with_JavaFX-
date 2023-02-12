@@ -7,6 +7,7 @@ package controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +30,7 @@ public class HomeController implements Initializable{
     @FXML
     private Label welcomeLabel;
     
+    Preferences prefs = Preferences.userRoot().node("/user/custom/root");
     BaseController baseController = new BaseController();
     
     
@@ -55,12 +57,11 @@ public class HomeController implements Initializable{
     }
     public void goToExchangeRatePage(ActionEvent event) throws IOException
     {
-        baseController.goToCheckWeatherPage(event);
+        baseController.goToExchangeRatePage(event);
     }
     public void goToEmergencySOSPage(ActionEvent event) throws IOException
     {
         baseController.goToEmergencySOSPage(event);
-        System.out.println("This is sos");
     }
     public void goToBookAnythingPage(ActionEvent event) throws IOException
     {
@@ -92,8 +93,11 @@ public class HomeController implements Initializable{
     CheckWeatherController chkWCon = new CheckWeatherController();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        StaticItemsClass.logInStatus = prefs.getBoolean("logInStatus", false);
         if(StaticItemsClass.logInStatus == true)
         {
+            StaticItemsClass.user_name = prefs.get("username", "bappa");
+            StaticItemsClass.user_id = prefs.getInt("userid", 5);
             welcomeLabel.setText(welcomeLabel.getText()+ " "+StaticItemsClass.user_name);
         }
         else{
