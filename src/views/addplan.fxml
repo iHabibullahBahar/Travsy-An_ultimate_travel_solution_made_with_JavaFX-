@@ -6,20 +6,31 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="412.0" prefWidth="622.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="controllers.AddPlanController">
+<AnchorPane prefHeight="412.0" prefWidth="622.0" styleClass="root" stylesheets="@../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddPlanController">
    <children>
-      <Button fx:id="clearBtn" layoutX="184.0" layoutY="359.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="115.0" text="Clear" />
-      <Button fx:id="saveBtn" layoutX="319.0" layoutY="360.0" mnemonicParsing="false" onAction="#save" prefHeight="36.0" prefWidth="115.0" text="Save" />
-      <Button fx:id="closeBtn" layoutX="562.0" layoutY="14.0" mnemonicParsing="false" text="close" />
-      <TextArea fx:id="descriptionTextArea" layoutX="129.0" layoutY="58.0" prefHeight="97.0" prefWidth="386.0" />
+      <Button id="exploreBtn" fx:id="clearBtn" layoutX="184.0" layoutY="359.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="115.0" text="Clear" />
+      <Button id="exploreBtn" fx:id="saveBtn" layoutX="319.0" layoutY="360.0" mnemonicParsing="false" onAction="#save" prefHeight="36.0" prefWidth="115.0" text="Save" />
+      <TextArea fx:id="descriptionTextArea" layoutX="129.0" layoutY="58.0" prefHeight="97.0" prefWidth="386.0" wrapText="true" />
       <TextField fx:id="importanceTextField" layoutX="129.0" layoutY="184.0" />
       <TextField fx:id="processTextField" layoutX="129.0" layoutY="230.0" />
       <DatePicker fx:id="dueDatePicker" layoutX="129.0" layoutY="281.0" />
-      <Label layoutX="129.0" layoutY="39.0" text="Plan Description" />
-      <Label layoutX="129.0" layoutY="166.0" text="Plan Importance" />
-      <Label layoutX="129.0" layoutY="211.0" text="Plan Process" />
-      <Label layoutX="129.0" layoutY="262.0" text="Pick a due date" />
+      <Label layoutX="129.0" layoutY="39.0" text="Plan Description">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="129.0" layoutY="166.0" text="Plan Importance">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="129.0" layoutY="211.0" text="Plan Process">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="129.0" layoutY="262.0" text="Pick a due date">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
    </children>
 </AnchorPane>

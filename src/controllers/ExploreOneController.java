@@ -1,12 +1,16 @@
-
-package controllers;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package controllers;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,20 +21,29 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
  *
  * @author Habib
  */
-public class HomeController implements Initializable{
+public class ExploreOneController implements Initializable{
     private Parent root;
     private Stage stage;
     private Scene scene;
+    
+    @FXML
+    private Pane explorePane;
+    
+    
     @FXML
     private Label welcomeLabel;
+    @FXML
+    private ImageView imageView;
     
-    Preferences prefs = Preferences.userRoot().node("/user/custom/root");
     BaseController baseController = new BaseController();
     
     
@@ -89,61 +102,24 @@ public class HomeController implements Initializable{
     {
         baseController.profileIconClick(event);
     }
-
-    CheckWeatherController chkWCon = new CheckWeatherController();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        StaticItemsClass.logInStatus = prefs.getBoolean("logInStatus", false);
-        if(StaticItemsClass.logInStatus == true)
-        {
-            StaticItemsClass.user_name = prefs.get("username", "bappa");
-            StaticItemsClass.user_id = prefs.getInt("userid", 5);
-            welcomeLabel.setText(welcomeLabel.getText()+ " "+StaticItemsClass.user_name);
-        }
-        else{
-            welcomeLabel.setText(welcomeLabel.getText()+ " User");
-        }
+        setImage();
         
-        try{
-            
-            chkWCon.getWeatherReport();}
-        catch(Exception e){
-            System.out.println("unable to connect the check weather api");
-        }
-        try {
-            StaticItemsClass.connect = StaticItemsClass.connectDB();
-        } catch (Exception e) {
-        } 
+    }
+    String image = StaticItemsClass.image;
+    Image myImage = new Image(getClass().getResourceAsStream(image));
+    public void setImage(){
+        imageView.setImage(myImage);
     }
     
-    //Explore Bangladesh
-    public void exBtn1(ActionEvent event) throws IOException{
-        StaticItemsClass.image = "../assets/Images/coxs_bazar.jpg";
-        StaticItemsClass.currentPlace = "cox";
-        baseController.goToExplorePage(event);
+    @FXML
+    public void explorePlace(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("../views/travelwithtravsy_1.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
-    public void exBtn2(ActionEvent event) throws IOException{
-        StaticItemsClass.image = "../assets/Images/sylhet.jpg";
-        StaticItemsClass.currentPlace = "syl";
-        baseController.goToExplorePage(event);
-    }
-    public void exBtn3(ActionEvent event) throws IOException{
-        StaticItemsClass.image = "../assets/Images/sajek.jpg";
-        StaticItemsClass.currentPlace = "saj";
-        baseController.goToExplorePage(event); 
-    }
-    public void exBtn4(ActionEvent event) throws IOException{
-        StaticItemsClass.image = "../assets/Images/sundarban.jpg";
-        StaticItemsClass.currentPlace = "sundar";
-        baseController.goToExplorePage(event);
-    }
-    public void exBtn5(ActionEvent event) throws IOException{
-        StaticItemsClass.image = "../assets/Images/kuakata.jpg";
-        StaticItemsClass.currentPlace = "kuakata";
-        baseController.goToExplorePage(event);
-    }
-    
-    
-    
-    
+ 
 }

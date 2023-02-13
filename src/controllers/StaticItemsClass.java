@@ -38,6 +38,11 @@ public class StaticItemsClass {
     //tour package info
     static int current_packageId;
     
+    //Explore bangladesh
+    static String currentPlace;
+    static String image;
+    static String buttonName;
+    
     
     public static Connection connectDB(){
     try{

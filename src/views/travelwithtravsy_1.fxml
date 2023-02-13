@@ -3,7 +3,9 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,11 +14,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TravelWithTravsyController1">
    <children>
+      <ImageView fitHeight="560.0" fitWidth="850.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="560.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/sidebar/home_sidebar.png" />
+            <Image url="@../assets/sidebar/travel_with_us_sidebar.png" />
          </image>
       </ImageView>
       <VBox layoutY="100.0" prefHeight="358.0" prefWidth="175.0">
@@ -80,7 +83,7 @@
                   <Image url="@../assets/profile_frame.png" />
                </image>
             </ImageView>
-            <Button fx:id="profileBtn" layoutX="7.0" layoutY="6.0" mnemonicParsing="false" onAction="#profileIconClick" opacity="0.03" prefHeight="36.0" prefWidth="36.0">
+            <Button fx:id="profileBtn" layoutX="7.0" layoutY="6.0" mnemonicParsing="false" onAction="#profileIconClick" opacity="0.0" prefHeight="36.0" prefWidth="36.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -96,53 +99,29 @@
             </BorderPane>
          </children>
       </Pane>
-      <Pane layoutY="-2.0" prefHeight="101.0" prefWidth="175.0" />
-      <ScrollPane layoutX="186.0" layoutY="163.0" prefHeight="195.0" prefWidth="659.0">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="178.0" prefWidth="1048.0" style="-fx-background-color: #DCE4DE;">
-               <children>
-                  <ImageView fitHeight="253.0" fitWidth="210.0" layoutX="2.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/places/coxsbazar.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="176.0" fitWidth="216.0" layoutX="215.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/places/tea-garden-1.jpeg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="141.0" fitWidth="208.0" layoutX="434.0" layoutY="-3.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../assets/places/sajek.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="139.0" fitWidth="207.0" layoutX="646.0" layoutY="-1.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../assets/places/Royal-Bengal-Tiger-Sundarban-Bangladesh.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="140.0" fitWidth="200.0" layoutX="860.0" layoutY="-4.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../assets/places/bangladesh-3991311_1280.jpg" />
-                     </image>
-                  </ImageView>
-                  <Button id="exploreBtn" layoutX="58.0" layoutY="143.0" mnemonicParsing="false" onAction="#exBtn1" text="Cox's Bazar" />
-                  <Button id="exploreBtn" layoutX="299.0" layoutY="143.0" mnemonicParsing="false" onAction="#exBtn2" text="Sylhet" />
-                  <Button id="exploreBtn" layoutX="500.0" layoutY="143.0" mnemonicParsing="false" onAction="#exBtn3" text="Sajek Vally" />
-                  <Button id="exploreBtn" layoutX="714.0" layoutY="142.0" mnemonicParsing="false" onAction="#exBtn4" text="Sundarbans" />
-                  <Button id="exploreBtn" layoutX="900.0" layoutY="141.0" mnemonicParsing="false" onAction="#exBtn5" text="Kuakata Sea Beach" />
-               </children>
-            </AnchorPane>
-         </content>
-      </ScrollPane>
-      <Label layoutX="195.0" layoutY="134.0" prefHeight="27.0" prefWidth="175.0" text="Explore Bangladesh" textFill="#102948">
+      <Pane layoutY="-2.0" prefHeight="101.0" prefWidth="175.0">
+         <children>
+            <BorderPane layoutY="2.0" prefHeight="101.0" prefWidth="175.0">
+               <center>
+                  <ImageView fitHeight="86.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </children>
+      </Pane>
+      <TableView fx:id="packageTableView" layoutX="187.0" layoutY="103.0" prefHeight="414.0" prefWidth="655.0">
+        <columns>
+          <TableColumn fx:id="placeColumn" prefWidth="113.33331298828125" text="Place" />
+          <TableColumn fx:id="routeColumn" prefWidth="153.33334350585938" text="Route" />
+            <TableColumn fx:id="stayColumn" prefWidth="103.33331298828125" text="Stay" />
+            <TableColumn fx:id="dateColumn" prefWidth="95.33331298828125" text="Date" />
+            <TableColumn fx:id="priceColumn" prefWidth="78.66668701171875" text="Price" />
+            <TableColumn fx:id="actionColumn" prefWidth="107.33331298828125" text="Action" />
+        </columns>
+      </TableView>
+      <TextField id="keywordsField" fx:id="keywordsField" layoutX="261.0" layoutY="59.0" promptText="keywords" />
+      <Label id="keywordsField" layoutX="420.0" layoutY="63.0" text="Search Anything">
          <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="welcomeLabel" layoutX="202.0" layoutY="80.0" prefHeight="35.0" prefWidth="311.0" text="Welcome ">
-         <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="13.0" />
          </font>
       </Label>
    </children>

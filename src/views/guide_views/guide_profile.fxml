@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.admin_panel.AdminProfilePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.guide_panel.ProfileController">
    <children>
       <ImageView fitHeight="560.0" fitWidth="850.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -45,5 +45,6 @@
          </font>
       </Label>
       <Button layoutX="790.0" layoutY="14.0" mnemonicParsing="false" onAction="#profileIconClick" opacity="0.02" prefHeight="43.0" prefWidth="46.0" />
+      <Button layoutX="760.0" layoutY="508.0" mnemonicParsing="false" onAction="#logOutBtnAction" style="-fx-background-color: #102948;" text="Log Out" textFill="WHITE" />
    </children>
 </AnchorPane>

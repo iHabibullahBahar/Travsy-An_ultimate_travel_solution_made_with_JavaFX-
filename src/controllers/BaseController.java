@@ -14,7 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 /**
@@ -100,6 +102,13 @@ public class BaseController{
         stage.setScene(scene);
         stage.show();    
     }
+    public void goToCopyTravelWithTravsyPage(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("../views/travelwithtravsy1.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();    
+    }
     public void goToSettingsPage(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("../views/setting.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -151,6 +160,29 @@ public class BaseController{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    public void goToExplorePage(ActionEvent event)throws IOException{
+        root = FXMLLoader.load(getClass().getResource("../views/explore.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+        public void forbiddenAction(ActionEvent event,String header) throws IOException{
+		Alert alert = new Alert(Alert.AlertType.NONE);
+                alert.getDialogPane().getButtonTypes().add(ButtonType.YES);
+                alert.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+		alert.setTitle("Login Now");
+		alert.setHeaderText(header);
+		alert.setContentText("Do you want to Login Now?");
+                
+		if (alert.showAndWait().get() == ButtonType.YES){
+                    this.goToLoginPage(event);
+		}
+                else if (alert.showAndWait().get() == ButtonType.CANCEL){
+                        alert.close();
+		}
     }
     
 }

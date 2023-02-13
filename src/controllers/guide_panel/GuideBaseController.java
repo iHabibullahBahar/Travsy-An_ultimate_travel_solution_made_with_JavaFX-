@@ -5,7 +5,12 @@
  */
 package controllers.guide_panel;
 
+import controllers.StaticItemsClass;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.prefs.BackingStoreException;
+import java.util.prefs.Preferences;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -24,10 +29,19 @@ public class GuideBaseController {
     private Scene scene;
     
     public void profileIconClick(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../../views/admin_views/admin_profile.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../../views/guide_views/guide_profile.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();  
     }
+    public void goToLogInPage(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("../../views/login.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    
 }

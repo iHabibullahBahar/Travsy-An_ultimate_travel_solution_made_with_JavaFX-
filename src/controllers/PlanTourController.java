@@ -4,8 +4,6 @@
  */
 package controllers;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import models.PlanModel;
 import java.io.IOException;
 import java.net.URL;
@@ -27,7 +25,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -37,7 +34,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
@@ -86,11 +82,17 @@ public class PlanTourController implements Initializable{
     ObservableList<PlanModel>  planList = FXCollections.observableArrayList();
     
     public void addPlanBtnAction(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("../views/addplan.fxml"));
-        stage = new Stage();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show(); 
+        if(StaticItemsClass.logInStatus == false){
+            baseController.forbiddenAction(event,"You can not add a plan without login");
+        }
+        else{
+            root = FXMLLoader.load(getClass().getResource("../views/addplan.fxml"));
+            stage = new Stage();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show(); 
+        }   
+        
     }
     
     
@@ -101,19 +103,24 @@ public class PlanTourController implements Initializable{
             String query = "SELECT * FROM `plan_a_tour`";
             int id = StaticItemsClass.user_id;
 
+            
+                
+                
             //statement.setString(1, String.valueOf(id));
             statement = connect.prepareStatement(query);
             result = statement.executeQuery();
+            if(StaticItemsClass.logInStatus == false){
+                id = 2;
+            }
             while (result.next()){
 
-                if(result.getInt("user_id")!=id){continue;}         
+                if(result.getInt("user_id")!=id){continue;}       
                 int userId  = result.getInt("user_id");
                 int planId = result.getInt("plan_id");
                 String planDescription = result.getString("plan_description");
                 int planImportance = result.getInt("plan_importance");
                 int process =result.getInt("process");
                 LocalDate due_date = convertToLocalDateViaMilisecond(result.getDate("due_date"));
-                System.out.println(userId + " "+planId+" "+planDescription+" "+planImportance+" "+process+" "+due_date);
                 planList.add(new  PlanModel(userId,planId,planDescription,planImportance,process,due_date));
             }
         } 
@@ -134,17 +141,10 @@ public class PlanTourController implements Initializable{
         
         connect = StaticItemsClass.connectDB();
         refreshTable();
-        
-//        userIdColumn.setCellValueFactory(new PropertyValueFactory<>("userId"));
-//        planIdColumn.setCellValueFactory(new PropertyValueFactory<>("planId"));
-        
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("planDescription"));
         importanceColumn.setCellValueFactory(new PropertyValueFactory<>("importance"));
         processColumn.setCellValueFactory(new PropertyValueFactory<>("process"));
         dueDateColumn.setCellValueFactory(new PropertyValueFactory<>("due_date"));
-        
-        //studentsTable.setItems(StudentList);
-        
         
         //add cell of button edit 
          Callback<TableColumn<PlanModel, String>, TableCell<PlanModel, String>> cellFoctory = (TableColumn<PlanModel, String> param) -> {
@@ -170,15 +170,10 @@ public class PlanTourController implements Initializable{
                         +"-fx-text-fill:#ffffff;");
                         viewIcon.setStyle("-fx-background-color:#102948;"
                         +"-fx-text-fill:#ffffff;");
-                        //FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
-                        //final FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
-                        //editIcon.setStyle("-fx-background-Color:#000000;");
-                        
                         deleteIcon.setOnMouseClicked((MouseEvent event) -> {
                             try {
                                 planModel = getTableView().getItems().get(getIndex());
                                 query = "DELETE FROM `plan_a_tour` WHERE plan_id  ="+planModel.getPlanId();
-                                //connect = DbConnect.getConnect();
                                 statement = connect.prepareStatement(query);
                                 statement.execute();
                                 refreshTable();
@@ -252,12 +247,9 @@ public class PlanTourController implements Initializable{
         actionColumn.setCellFactory(cellFoctory);
         planViewTable.setItems(planList);
     }
-    
-        
-    
-    ///userIdColumn.setCellValueFactory(new PropertyValueFactory<>("userId"));
-    
-    
+
+
+            
     //BUTTON ACTION 
     BaseController baseController = new BaseController();
     

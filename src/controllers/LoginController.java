@@ -99,7 +99,7 @@ public class LoginController implements Initializable {
     }
     public void roleChecker(ActionEvent event) throws IOException{
         if(role.equals("user")){
-            
+            StaticItemsClass.logInStatus = true;
             baseController.profileIconClick(event);
         }
         else if(role.equals("admin"))
