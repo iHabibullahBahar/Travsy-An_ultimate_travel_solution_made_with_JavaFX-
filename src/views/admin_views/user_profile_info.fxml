@@ -54,7 +54,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="blockBtn" layoutX="680.0" layoutY="516.0" mnemonicParsing="false" onAction="#blockGuide" prefHeight="29.0" prefWidth="104.0" style="-fx-background-color: #102948;" text="Block User" textFill="WHITE" />
+      <Button id="exploreBtn" fx:id="blockBtn" layoutX="680.0" layoutY="516.0" mnemonicParsing="false" onAction="#blockGuide" prefHeight="31.0" prefWidth="104.0" text="Block User" textFill="WHITE" />
       <Label layoutX="614.0" layoutY="190.0" text="Activity Status">
          <font>
             <Font name="System Bold" size="12.0" />

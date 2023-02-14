@@ -11,6 +11,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BaseController">
    <children>
+      <ImageView fitHeight="568.0" fitWidth="850.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/pages/supportPage.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="560.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/sidebar/support_sidebar.png" />
@@ -77,7 +82,7 @@
                   <Image url="@../assets/profile_frame.png" />
                </image>
             </ImageView>
-            <Button fx:id="profileBtn" layoutX="7.0" layoutY="6.0" mnemonicParsing="false" onAction="#profileIconClick" prefHeight="36.0" prefWidth="36.0">
+            <Button fx:id="profileBtn" layoutX="7.0" layoutY="6.0" mnemonicParsing="false" onAction="#profileIconClick" opacity="0.0" prefHeight="36.0" prefWidth="36.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

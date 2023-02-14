@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controllers;
 
+package controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -87,26 +87,31 @@ public class PackageInfoController implements Initializable{
      }
      
      
-     public void bookPackage(){
+     public void bookPackage(ActionEvent event) throws IOException{
         promtLabel.setText("");
-        if(orderNumber>3)
-        {
-            promtLabel.setText("You Can place 3 orders at a time");
-            bookBtn.setVisible(false); 
+        if(StaticItemsClass.logInStatus){
+            if(orderNumber>3)
+            {
+                promtLabel.setText("You can place 3 orders at a time");
+                bookBtn.setVisible(false); 
+            }
+            else{
+                String sql = "INSERT INTO `package_order`(`package_id`, `user_id`, `user_name`) VALUES (?,?,?)";
+                try {
+                    statement = connect.prepareStatement(sql);
+                    statement.setString(1, String.valueOf(StaticItemsClass.current_packageId));
+                    statement.setString(2, String.valueOf(StaticItemsClass.user_id));
+                    statement.setString(3, StaticItemsClass.user_name);
+                    statement.execute();
+                    promtLabel.setText("Successfully Placed");
+                    orderNumber=orderNumber+1;
+                 } catch (Exception e) {
+                 }
+            }
         }
         else{
-            String sql = "INSERT INTO `package_order`(`package_id`, `user_id`, `user_name`) VALUES (?,?,?)";
-            try {
-                statement = connect.prepareStatement(sql);
-                statement.setString(1, String.valueOf(StaticItemsClass.current_packageId));
-                statement.setString(2, String.valueOf(StaticItemsClass.user_id));
-                statement.setString(3, StaticItemsClass.user_name);
-                statement.execute();
-                promtLabel.setText("Successfully Placed");
-                orderNumber=orderNumber+1;
-             } catch (Exception e) {
-             }
-        }
+           baseController.forbiddenAction(event, "You can not buy  a package without login.");
+       }
             
             
         

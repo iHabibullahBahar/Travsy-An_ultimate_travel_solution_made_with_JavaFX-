@@ -107,16 +107,16 @@
             </BorderPane>
          </children>
       </Pane>
-      <TableView fx:id="sosListTableview" layoutX="223.0" layoutY="109.0" prefHeight="448.0" prefWidth="453.0">
+      <TableView fx:id="sosListTableview" layoutX="193.0" layoutY="109.0" prefHeight="444.0" prefWidth="641.0">
         <columns>
-          <TableColumn fx:id="contactNoColumn" prefWidth="75.0" text="Contact No" />
-          <TableColumn fx:id="serviceNameColumn" prefWidth="111.33334350585938" text="Service Name" />
-            <TableColumn fx:id="placeOfServiceColumn" prefWidth="105.33331298828125" text="Place of Service" />
-            <TableColumn fx:id="countryNameColumn" prefWidth="99.33340454101562" text="Country Name" />
+          <TableColumn fx:id="contactNoColumn" prefWidth="90.00001525878906" text="Contact No" />
+          <TableColumn fx:id="serviceNameColumn" prefWidth="170.6666259765625" text="Service Name" />
+            <TableColumn fx:id="placeOfServiceColumn" prefWidth="208.00003051757812" text="Place of Service" />
+            <TableColumn fx:id="countryNameColumn" prefWidth="170.00002034505212" text="Country Name" />
         </columns>
       </TableView>
-      <TextField fx:id="keywordsField" layoutX="271.0" layoutY="69.0" promptText="keywords" />
-      <Label layoutX="430.0" layoutY="73.0" text="Search Any Place">
+      <TextField id="search_text_field" fx:id="keywordsField" layoutX="544.0" layoutY="65.0" promptText="keywords" />
+      <Label layoutX="707.0" layoutY="69.0" text="Search Any Place">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

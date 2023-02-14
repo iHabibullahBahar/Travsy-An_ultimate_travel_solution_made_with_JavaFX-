@@ -61,6 +61,8 @@ public class PlanTourController implements Initializable{
     
     PlanModel planModel = null;
     
+    @FXML 
+    Button DoneBtn;
     @FXML
     private TableView<PlanModel> planViewTable;
 //    @FXML
@@ -201,7 +203,6 @@ public class PlanTourController implements Initializable{
                             stage.setScene(new Scene(parent));
                             stage.initStyle(StageStyle.UTILITY);
                             stage.show();
-
                         });
                         viewIcon.setOnMouseClicked((MouseEvent event) -> {
                             
@@ -223,6 +224,7 @@ public class PlanTourController implements Initializable{
                             stage.setScene(new Scene(parent));
                             stage.initStyle(StageStyle.UTILITY);
                             stage.show();
+                            
 
                         });
                         

@@ -105,16 +105,16 @@
             </BorderPane>
          </children>
       </Pane>
-      <TableView fx:id="planViewTable" layoutX="182.0" layoutY="111.0" prefHeight="436.0" prefWidth="662.0">
+      <TableView fx:id="planViewTable" layoutX="189.0" layoutY="111.0" prefHeight="436.0" prefWidth="647.0">
         <columns>
           <TableColumn fx:id="descriptionColumn" prefWidth="266.00001525878906" text="Plan Description" />
             <TableColumn fx:id="importanceColumn" prefWidth="85.33328247070312" text="Importance" />
             <TableColumn fx:id="processColumn" prefWidth="55.3333740234375" text="Process" />
-            <TableColumn fx:id="dueDateColumn" prefWidth="86.0" text="Due Date" />
-            <TableColumn fx:id="actionColumn" prefWidth="174.6666259765625" text="Action" />
+            <TableColumn fx:id="dueDateColumn" prefWidth="77.33331298828125" text="Due Date" />
+            <TableColumn fx:id="actionColumn" prefWidth="160.66668701171875" text="Action" />
         </columns>
       </TableView>
-      <Button layoutX="708.0" layoutY="73.0" mnemonicParsing="false" onAction="#addPlanBtnAction" text="Add  Plan" />
+      <Button id="exploreBtn" layoutX="669.0" layoutY="73.0" mnemonicParsing="false" onAction="#addPlanBtnAction" prefHeight="30.0" prefWidth="106.0" text="Add  Plan" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

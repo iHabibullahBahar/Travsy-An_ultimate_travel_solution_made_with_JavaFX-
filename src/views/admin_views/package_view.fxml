@@ -41,14 +41,14 @@
             <TableColumn fx:id="actionColumn" prefWidth="109.333251953125" text="Action" />
          </columns>
       </TableView>
-      <Button layoutX="645.0" layoutY="69.0" mnemonicParsing="false" onAction="#addNewPackage" text="Add Package" />
+      <Button id="exploreBtn" layoutX="645.0" layoutY="69.0" mnemonicParsing="false" onAction="#addNewPackage" prefHeight="31.0" prefWidth="101.0" text="Add Package" />
       <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="581.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/icons/refresh_480px.png" />
          </image>
       </ImageView>
       <Button layoutX="584.0" layoutY="69.0" mnemonicParsing="false" onAction="#refreshButton" opacity="0.02" prefHeight="29.0" prefWidth="29.0" />
-      <TextField id="keywordsField" fx:id="keywordsField" layoutX="271.0" layoutY="69.0" promptText="keywords" />
+      <TextField id="search_text_field" fx:id="keywordsField" layoutX="271.0" layoutY="69.0" promptText="keywords" />
       <Label id="keywordsField" layoutX="430.0" layoutY="73.0" text="Search Anything">
          <font>
             <Font name="System Bold" size="13.0" />

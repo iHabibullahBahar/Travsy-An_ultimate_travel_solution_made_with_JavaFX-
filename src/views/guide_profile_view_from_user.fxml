@@ -109,21 +109,44 @@
             </BorderPane>
          </children>
       </Pane>
-      <Label fx:id="contactNoLabel" layoutX="302.0" layoutY="252.0" prefHeight="17.0" prefWidth="184.0" text="Label" />
-      <Label fx:id="emailLabel" layoutX="302.0" layoutY="276.0" prefHeight="17.0" prefWidth="191.0" text="Label" />
-      <Label fx:id="AdressLabel" layoutX="302.0" layoutY="300.0" prefHeight="17.0" prefWidth="191.0" text="Label" />
-      <Label fx:id="hRateLabel" layoutX="604.0" layoutY="257.0" prefHeight="17.0" prefWidth="138.0" text="Label" />
-      <Label fx:id="dailyRateLabel" layoutX="604.0" layoutY="281.0" prefHeight="17.0" prefWidth="134.0" text="Label" />
-      <Label fx:id="guideNameLabel" layoutX="319.0" layoutY="176.0" prefHeight="17.0" prefWidth="207.0" text="Label" />
+      <Label fx:id="contactNoLabel" layoutX="302.0" layoutY="252.0" prefHeight="17.0" prefWidth="184.0" text="Label">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="emailLabel" layoutX="302.0" layoutY="276.0" prefHeight="17.0" prefWidth="191.0" text="Label">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="AdressLabel" layoutX="302.0" layoutY="300.0" prefHeight="17.0" prefWidth="191.0" text="Label">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="hRateLabel" layoutX="604.0" layoutY="257.0" prefHeight="17.0" prefWidth="138.0" text="Label">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="dailyRateLabel" layoutX="604.0" layoutY="281.0" prefHeight="17.0" prefWidth="134.0" text="Label">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="guideNameLabel" layoutX="319.0" layoutY="176.0" prefHeight="17.0" prefWidth="207.0" text="Label">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <Label fx:id="ratingLabel" layoutX="689.0" layoutY="116.0" prefHeight="29.0" prefWidth="59.0" text="Label">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="markBtn" layoutX="656.0" layoutY="367.0" mnemonicParsing="false" onAction="#bookkGuide" prefHeight="29.0" prefWidth="104.0" style="-fx-background-color: #102948;" text="Book Guide" textFill="WHITE" />
+      <Button id="exploreBtn" fx:id="markBtn" layoutX="648.0" layoutY="367.0" mnemonicParsing="false" onAction="#bookkGuide" prefHeight="30.0" prefWidth="112.0" text="Book Guide" textFill="WHITE" />
       <Label fx:id="statusLabel" layoutX="330.0" layoutY="346.0" prefHeight="19.0" prefWidth="285.0" textFill="#102948">
          <font>
             <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="636.0" layoutY="306.0" text="Available">
+         <font>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
    </children>

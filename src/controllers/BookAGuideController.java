@@ -107,7 +107,6 @@ public class BookAGuideController implements Initializable{
             //statement.setString(1, String.valueOf(id));
             statement = connect.prepareStatement(query);
             result = statement.executeQuery();
-            System.out.println("Hiii");
             while (result.next()){
         
                 int userId  = result.getInt("user_id");
@@ -120,7 +119,9 @@ public class BookAGuideController implements Initializable{
                 status = result.getString("activity_status");
                 verifiedStatus = result.getString("verified_status");
                 guideUserName = result.getString("user_name");
-                guideList.add(new  GuideModel(userId,guideId,name,placeOfService,hourlyRate,dailyRate,rating,status.toUpperCase(),guideUserName));
+                if(verifiedStatus.toLowerCase().equals("verified")){
+                    guideList.add(new  GuideModel(userId,guideId,name,placeOfService,hourlyRate,dailyRate,rating,status.toUpperCase(),guideUserName));
+                }
             }
         } 
         catch (SQLException ex) {

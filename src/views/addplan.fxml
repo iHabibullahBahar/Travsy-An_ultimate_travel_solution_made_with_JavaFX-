@@ -12,10 +12,10 @@
    <children>
       <Button id="exploreBtn" fx:id="clearBtn" layoutX="184.0" layoutY="359.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="115.0" text="Clear" />
       <Button id="exploreBtn" fx:id="saveBtn" layoutX="319.0" layoutY="360.0" mnemonicParsing="false" onAction="#save" prefHeight="36.0" prefWidth="115.0" text="Save" />
-      <TextArea fx:id="descriptionTextArea" layoutX="129.0" layoutY="58.0" prefHeight="97.0" prefWidth="386.0" wrapText="true" />
-      <TextField fx:id="importanceTextField" layoutX="129.0" layoutY="184.0" />
-      <TextField fx:id="processTextField" layoutX="129.0" layoutY="230.0" />
-      <DatePicker fx:id="dueDatePicker" layoutX="129.0" layoutY="281.0" />
+      <TextArea id="textArea" fx:id="descriptionTextArea" layoutX="129.0" layoutY="58.0" prefHeight="97.0" prefWidth="386.0" wrapText="true" />
+      <TextField id="search_text_field" fx:id="importanceTextField" layoutX="129.0" layoutY="184.0" />
+      <TextField id="search_text_field" fx:id="processTextField" layoutX="129.0" layoutY="230.0" />
+      <DatePicker id="textArea" fx:id="dueDatePicker" layoutX="129.0" layoutY="281.0" />
       <Label layoutX="129.0" layoutY="39.0" text="Plan Description">
          <font>
             <Font name="System Bold" size="13.0" />

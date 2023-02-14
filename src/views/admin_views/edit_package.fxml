@@ -10,19 +10,19 @@
 
 <AnchorPane id="AnchorPane" prefHeight="432.0" prefWidth="600.0" stylesheets="@../../assets/global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.admin_panel.EditPackageController">
    <children>
-      <TextField fx:id="placeField" layoutX="160.0" layoutY="70.0" prefHeight="25.0" prefWidth="300.0" />
-      <TextArea fx:id="descriptionfield" layoutX="160.0" layoutY="256.0" prefHeight="93.0" prefWidth="300.0" />
-      <TextField fx:id="routeField" layoutX="160.0" layoutY="105.0" prefHeight="25.0" prefWidth="300.0" />
-      <TextField fx:id="stayField" layoutX="160.0" layoutY="137.0" prefHeight="25.0" prefWidth="300.0" />
-      <TextField fx:id="priceField" layoutX="160.0" layoutY="172.0" prefHeight="25.0" prefWidth="300.0" />
-      <DatePicker fx:id="dateField" layoutX="161.0" layoutY="210.0" prefHeight="25.0" prefWidth="300.0" />
+      <TextField id="search_text_field" fx:id="placeField" layoutX="160.0" layoutY="70.0" prefHeight="25.0" prefWidth="300.0" />
+      <TextArea id="textArea" fx:id="descriptionfield" layoutX="160.0" layoutY="256.0" prefHeight="93.0" prefWidth="300.0" />
+      <TextField id="search_text_field" fx:id="routeField" layoutX="160.0" layoutY="105.0" prefHeight="25.0" prefWidth="300.0" />
+      <TextField id="search_text_field" fx:id="stayField" layoutX="160.0" layoutY="137.0" prefHeight="25.0" prefWidth="300.0" />
+      <TextField id="search_text_field" fx:id="priceField" layoutX="160.0" layoutY="172.0" prefHeight="25.0" prefWidth="300.0" />
+      <DatePicker id="textArea" fx:id="dateField" layoutX="161.0" layoutY="210.0" prefHeight="25.0" prefWidth="300.0" />
       <Label layoutX="233.0" layoutY="30.0" text="Edit Tour Package">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="addBtn" layoutX="304.0" layoutY="371.0" mnemonicParsing="false" onAction="#addPackage" text="Edit Package" />
-      <Button fx:id="clearBtn" layoutX="227.0" layoutY="371.0" mnemonicParsing="false" onAction="#clean" text="Clear Data" />
+      <Button id="exploreBtn" fx:id="addBtn" layoutX="306.0" layoutY="371.0" mnemonicParsing="false" onAction="#addPackage" prefHeight="29.0" prefWidth="93.0" text="Edit Package" />
+      <Button id="exploreBtn" fx:id="clearBtn" layoutX="204.0" layoutY="371.0" mnemonicParsing="false" onAction="#clean" prefHeight="29.0" prefWidth="93.0" text="Clear Data" />
       <Label layoutX="82.0" layoutY="74.0" text="Place">
          <font>
             <Font name="System Bold" size="13.0" />

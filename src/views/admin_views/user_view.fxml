@@ -37,7 +37,7 @@
             <TableColumn fx:id="actionColumn" prefWidth="74.66668701171875" text="Action" />
         </columns>
       </TableView>
-      <TextField id="keywordsField" fx:id="keywordsField" layoutX="271.0" layoutY="69.0" promptText="keywords" />
+      <TextField id="search_text_field" fx:id="keywordsField" layoutX="271.0" layoutY="69.0" promptText="keywords" />
       <Label id="keywordsField" layoutX="430.0" layoutY="73.0" text="Search Anything">
          <font>
             <Font name="System Bold" size="13.0" />

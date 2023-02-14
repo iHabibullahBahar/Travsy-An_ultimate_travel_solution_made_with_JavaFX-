@@ -186,10 +186,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="amountField" layoutX="230.0" layoutY="119.0" prefHeight="35.0" prefWidth="149.0" text="1" />
-      <TextField fx:id="baseCurrencyField" layoutX="400.0" layoutY="119.0" prefHeight="35.0" prefWidth="111.0" promptText="USD" />
-      <TextField fx:id="convertCurrencyField" layoutX="558.0" layoutY="119.0" prefHeight="35.0" prefWidth="111.0" promptText="BDT" />
-      <Button fx:id="connvertBtn" layoutX="681.0" layoutY="118.0" mnemonicParsing="false" onAction="#convertBtnAction" prefHeight="35.0" prefWidth="94.0" text="Convert" />
+      <TextField id="search_text_field" fx:id="amountField" layoutX="230.0" layoutY="119.0" prefHeight="35.0" prefWidth="149.0" text="1" />
+      <TextField id="search_text_field" fx:id="baseCurrencyField" layoutX="400.0" layoutY="119.0" prefHeight="35.0" prefWidth="111.0" promptText="USD" />
+      <TextField id="search_text_field" fx:id="convertCurrencyField" layoutX="558.0" layoutY="119.0" prefHeight="35.0" prefWidth="111.0" promptText="BDT" />
+      <Button id="exploreBtn" fx:id="connvertBtn" layoutX="681.0" layoutY="118.0" mnemonicParsing="false" onAction="#convertBtnAction" prefHeight="35.0" prefWidth="94.0" text="Convert" />
       <Label fx:id="convertedCurrencyLabel" layoutX="240.0" layoutY="165.0" prefHeight="35.0" prefWidth="270.0" text="label" textFill="#102948">
          <font>
             <Font name="System Bold" size="14.0" />

@@ -17,7 +17,9 @@ import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -35,6 +37,9 @@ public class ProfileController implements Initializable{
     private PreparedStatement statement;
     private ResultSet result;
     
+    private Parent root;
+    private Stage stage;
+    private Scene scene;
     @FXML
     private Label userNameLabel;
     
@@ -97,7 +102,15 @@ public class ProfileController implements Initializable{
         StaticItemsClass.logInStatus=false;
         baseController.goToHomePage(event);
     }
+    public void editProfile(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("../views/editprofile.fxml"));
+        stage = new Stage();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();   
+    }
             
+    
     BaseController baseController = new BaseController();
     public void goToHomePage(ActionEvent event) throws IOException
     {

@@ -110,8 +110,8 @@
             </BorderPane>
          </children>
       </Pane>
-      <TextField fx:id="searchCityBar" layoutX="490.0" layoutY="19.0" prefHeight="25.0" prefWidth="143.0" promptText="Dhaka" />
-      <Button layoutX="645.0" layoutY="19.0" mnemonicParsing="false" onAction="#searchBtnClick" text="Search" />
+      <TextField id="search_text_field" fx:id="searchCityBar" layoutX="490.0" layoutY="25.0" prefHeight="25.0" prefWidth="143.0" promptText="Dhaka" />
+      <Button id="exploreBtn" layoutX="645.0" layoutY="25.0" mnemonicParsing="false" onAction="#searchBtnClick" prefHeight="29.0" prefWidth="101.0" text="Search" />
       <Label id="tempLabel" fx:id="tempLabel" layoutX="230.0" layoutY="192.0" prefHeight="70.0" prefWidth="101.0" textFill="#102948">
          <font>
             <Font name="System Bold" size="48.0" />

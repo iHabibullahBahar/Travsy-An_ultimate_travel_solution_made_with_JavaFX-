@@ -20,7 +20,7 @@
       </ImageView>
       <ScrollPane layoutX="175.0" layoutY="71.0" prefHeight="498.0" prefWidth="671.0" style="-fx-background-color: #C4E4D5;">
         <content>
-          <AnchorPane id="scrollPaneAdminPage" minHeight="0.0" minWidth="0.0" prefHeight="638.0" prefWidth="658.0">
+          <AnchorPane id="scrollPaneAdminPage" minHeight="0.0" minWidth="0.0" prefHeight="638.0" prefWidth="651.0">
                <children>
                   <TableView fx:id="orderTableView" layoutX="17.0" prefHeight="305.0" prefWidth="630.0">
                     <columns>

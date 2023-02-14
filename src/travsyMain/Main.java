@@ -1,10 +1,6 @@
 package travsyMain;
 
 
-import controllers.CheckWeatherController;
-import controllers.CurrencyConverterController;
-import controllers.StaticItemsClass;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
@@ -18,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /*
@@ -73,22 +70,24 @@ public class Main extends Application implements Initializable{
             stage.setX(event.getScreenX()-x);
             stage.setY(event.getScreenY()-y);
         });
+        
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setTitle("Travsy - Make Your Travel Easy");
+        stage.getIcons().add(new Image(Main.class.getResourceAsStream("../assets/icons/logo_final.png")));
         stage.show();
-        stage.setOnCloseRequest(event -> {
-				event.consume();
-				logout(stage);	
-			});
+//        stage.setOnCloseRequest(event -> {
+//				event.consume();
+//				logout(stage);	
+//			});
     }
     public void logout(Stage stage){	
 		//Alert alert = new Alert(Alert.AlertType.valueOf("Login"));
 		Alert alert = new Alert(AlertType.CONFIRMATION);
                 //alert.getDialogPane().getButtonTypes().add(ButtonType.YES);
 		alert.setTitle("Logout");
-		alert.setHeaderText("You're about to logout!");
-		alert.setContentText("Do you want to save before exiting?");
+		alert.setHeaderText("You're about to exit the applicaton.");
+		alert.setContentText("Do you want to exit?");
                 
 		
 		if (alert.showAndWait().get() == ButtonType.OK){

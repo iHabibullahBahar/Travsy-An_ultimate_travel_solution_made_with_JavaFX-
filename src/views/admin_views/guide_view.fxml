@@ -33,12 +33,12 @@
             <TableColumn fx:id="nameColumn" prefWidth="145.33334350585938" text="Name" />
             <TableColumn fx:id="placeOfServiceColumn" prefWidth="162.00009155273438" text="Place of Service" />
             <TableColumn fx:id="ratingColumn" prefWidth="70.6666259765625" text="Rating" />
-            <TableColumn fx:id="statusColumn" prefWidth="92.0" text="Verifed Status" />
-            <TableColumn fx:id="actionColumn" prefWidth="85.3333740234375" text="View Profile" />
+            <TableColumn fx:id="statusColumn" prefWidth="112.0" text="Verifed Status" />
+            <TableColumn fx:id="actionColumn" prefWidth="94.0" text="View Profile" />
          </columns>
       </TableView>
-      <TextField id="keywordsField" fx:id="keywordsField" layoutX="271.0" layoutY="69.0" promptText="keywords" />
-      <Label id="keywordsField" layoutX="430.0" layoutY="73.0" text="Search Anything">
+      <TextField id="search_text_field" fx:id="keywordsField" layoutX="505.0" layoutY="69.0" promptText="keywords" />
+      <Label id="keywordsField" layoutX="664.0" layoutY="73.0" text="Search Anything">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

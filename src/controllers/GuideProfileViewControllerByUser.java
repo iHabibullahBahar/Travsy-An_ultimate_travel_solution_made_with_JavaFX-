@@ -128,26 +128,31 @@ public class GuideProfileViewControllerByUser implements Initializable{
      }
      
      
-    public void bookkGuide(){
+    public void bookkGuide(ActionEvent event) throws IOException{
        
-       String sql = "INSERT INTO `guide_order`(`guide_id`, `guides_user_name`, `user_id`, `users_user_name`) VALUES (?,?,?,?)";
-       try {
-       
-       statement = connect.prepareStatement(sql);
-       statement.setString(1, String.valueOf(StaticItemsClass.current_guideId));
-       statement.setString(2, StaticItemsClass.current_guideUserName);
-       statement.setString(3, String.valueOf(StaticItemsClass.user_id));
-       statement.setString(4, StaticItemsClass.user_name);
-       statement.execute();
-       
-       sql = "UPDATE `guide_info` SET `activity_status` = 'booked' WHERE guide_id = ?";
-       statement = connect.prepareStatement(sql);
-       statement.setString(1, String.valueOf(StaticItemsClass.current_guideId));
-       statement.execute();
-       bookedByCurrentUser = true;
-       setInfoData();
-       } catch (Exception e) {
-           System.out.println("Cant Book");
+       if(StaticItemsClass.logInStatus){
+            String sql = "INSERT INTO `guide_order`(`guide_id`, `guides_user_name`, `user_id`, `users_user_name`) VALUES (?,?,?,?)";
+            try {
+
+            statement = connect.prepareStatement(sql);
+            statement.setString(1, String.valueOf(StaticItemsClass.current_guideId));
+            statement.setString(2, StaticItemsClass.current_guideUserName);
+            statement.setString(3, String.valueOf(StaticItemsClass.user_id));
+            statement.setString(4, StaticItemsClass.user_name);
+            statement.execute();
+
+            sql = "UPDATE `guide_info` SET `activity_status` = 'booked' WHERE guide_id = ?";
+            statement = connect.prepareStatement(sql);
+            statement.setString(1, String.valueOf(StaticItemsClass.current_guideId));
+            statement.execute();
+            bookedByCurrentUser = true;
+            setInfoData();
+            } catch (Exception e) {
+                System.out.println("Cant Book");
+            }
+       }
+       else{
+           baseController.forbiddenAction(event, "You can not hire a guide without login.");
        }
    }
   

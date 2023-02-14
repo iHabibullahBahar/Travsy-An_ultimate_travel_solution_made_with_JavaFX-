@@ -45,6 +45,6 @@
          </font>
       </Label>
       <Button layoutX="790.0" layoutY="14.0" mnemonicParsing="false" onAction="#profileIconClick" opacity="0.02" prefHeight="43.0" prefWidth="46.0" />
-      <Button layoutX="760.0" layoutY="508.0" mnemonicParsing="false" onAction="#logOutBtnAction" style="-fx-background-color: #102948;" text="Log Out" textFill="WHITE" />
+      <Button id="exploreBtn" layoutX="746.0" layoutY="504.0" mnemonicParsing="false" onAction="#logOutBtnAction" prefHeight="29.0" prefWidth="73.0" text="Log Out" textFill="WHITE" />
    </children>
 </AnchorPane>
